@@ -10,7 +10,6 @@ import MapKit
 
 struct ContentView: View {
     @StateObject private var countrySettings = CountrySettings()
-    @StateObject private var mapViewModel = MapViewModel()
     @State private var showDropdown = false
     @State private var currentPage = 0
     @State private var countries: [String: String] = [
@@ -40,7 +39,6 @@ struct ContentView: View {
                         Button(action: {
                             countrySettings.selectedCountry = key
                             UserDefaults.standard.set(key, forKey: "selectedCountry")
-                            mapViewModel.updateMap(selectedCountry: key)
                             showDropdown.toggle()
                         }) {
                             Text(countries[key] ?? "Unknown")
@@ -52,37 +50,48 @@ struct ContentView: View {
             .padding()
             
             TabView(selection: $currentPage) {
-                ForEach(0..<tabTitles.count, id: \.self) { index in
-                    MapViewController(viewModel: mapViewModel)
-                        .onAppear {
-                            mapViewModel.mode = getMapMode(index)
-                        }
-                        .tabItem {
-                            Image(systemName: getTabImageName(index))
-                            Text(tabTitles[index])
-                        }
-                        .tag(index)
-                }
+                MapSinglePointView()
+                    .tabItem {
+                        Image(systemName: getTabImageName(0))
+                        Text(tabTitles[0])
+                    }
+                    .tag(0)
+                
+                MapWayPointView()
+                    .tabItem {
+                        Image(systemName: getTabImageName(1))
+                        Text(tabTitles[1])
+                    }
+                    .tag(1)
+                
+                MapClutterView()
+                    .tabItem {
+                        Image(systemName: getTabImageName(2))
+                        Text(tabTitles[2])
+                    }
+                    .tag(2)
+                
+                MapAnimationView()
+                    .tabItem {
+                        Image(systemName: getTabImageName(3))
+                        Text(tabTitles[3])
+                    }
+                    .tag(3)
+                
+                MapFeatureView()
+                    .tabItem {
+                        Image(systemName: getTabImageName(4))
+                        Text(tabTitles[4])
+                    }
+                    .tag(4)
             }
             .onAppear {
                 if let storedCountry = UserDefaults.standard.string(forKey: "selectedCountry") {
                     countrySettings.selectedCountry = storedCountry
-                    mapViewModel.updateMap(selectedCountry: storedCountry)
                 }
             }
         }
         .environmentObject(countrySettings)
-    }
-    
-    func getMapMode(_ index: Int) -> MapViewMode {
-        switch index {
-        case 0: return .singlePoint
-        case 1: return .wayPoint
-        case 2: return .cluster
-        case 3: return .animation
-        case 4: return .feature
-        default: return .singlePoint
-        }
     }
     
     func getTabImageName(_ index: Int) -> String {

@@ -13,7 +13,6 @@ struct AddressSearchView: View {
     @Binding var searchText: String
     @State private var isListVisible = false
     @State private var selectedAddress: String?
-    @FocusState private var isTextFieldFocused: Bool
     @State private var selectedCoordinate: CLLocationCoordinate2D?
     @ObservedObject var addressRepository = AddressRepository()
     @StateObject private var markerManager = MarkerManager()
@@ -21,42 +20,32 @@ struct AddressSearchView: View {
     
     var body: some View {
         VStack {
-            ZStack(alignment: .trailing){
+            ZStack(alignment: .trailing) {
                 TextField("Nhập địa chỉ", text: $searchText, onEditingChanged: { isEditing in
                     isListVisible = isEditing
                 }, onCommit: {
                     isListVisible = false
+                    hideKeyboard()
                 })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal, 16)
-                .padding(.top, 16)
-                .lineLimit(3)
-                .multilineTextAlignment(.leading)
-                .fixedSize(horizontal: false, vertical: true)
-                .focused($isTextFieldFocused)
+                .padding(.vertical, 12)
+                .background(Color.white)
+                .cornerRadius(8)
+                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
                 .onChange(of: searchText) { newValue in
                     addressRepository.fetchAddresses(with: newValue)
                 }
-                .gesture(
-                    TapGesture()
-                        .onEnded { _ in
-                            isListVisible = true
-                        }
-                )
+                
                 if !searchText.isEmpty {
                     Button(action: {
                         searchText = ""
+                        hideKeyboard()
                     }) {
                         Image(systemName: "multiply.circle.fill")
-                            .foregroundColor(.secondary).onTapGesture {
-                                isListVisible = true
-                                searchText = ""
-                            }
-                    }.padding(.top, 16).padding(.horizontal, 20)
-                        .onTapGesture {
-                            isListVisible = true
-                            searchText = ""
-                        }
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.horizontal, 20)
                 }
             }
             if isListVisible && !searchText.isEmpty {
@@ -66,6 +55,7 @@ struct AddressSearchView: View {
                             .onTapGesture {
                                 searchText = suggestion.label
                                 isListVisible = false
+                                hideKeyboard()
                                 selectedAddress = suggestion.label
                                 if(suggestion.coordinates.isEmpty == false){
                                     let latitude: Double = suggestion.coordinates[1]
@@ -80,14 +70,14 @@ struct AddressSearchView: View {
                     .frame(height: 240)
                     .clipped()
                     .padding(.horizontal, 16)
-                    .onTapGesture {
-                        isListVisible = false
-                    }
                 }
             }
         }
     }
     
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 
 
@@ -99,6 +89,12 @@ struct MapSinglePointView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Color.clear
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
+                
                 MapViewController(viewModel: viewModel)
                     .onAppear {
                         viewModel.prepareForModeChange()
@@ -108,18 +104,32 @@ struct MapSinglePointView: View {
                     .onDisappear {
                         viewModel.clearMap()
                     }
+                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 0) {
                     AddressSearchView(searchText: $searchText, viewModel: viewModel)
                         .background(Color.white)
                         .cornerRadius(10)
+                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
                         .padding(.horizontal)
-                        .padding(.top, 8)
+                        .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top ?? 44)
                     
                     Spacer()
                     
-                    HStack {
+                    HStack(spacing: 16) {
                         Spacer()
+                        
+                        Button(action: {
+                            hideKeyboard()
+                        }) {
+                            Image(systemName: "keyboard.chevron.compact.down")
+                                .foregroundColor(.blue)
+                                .padding(10)
+                        }
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                        
                         Button(action: {
                             viewModel.centerOnUserLocation()
                         }) {
@@ -130,20 +140,19 @@ struct MapSinglePointView: View {
                         .background(Color.white)
                         .clipShape(Circle())
                         .shadow(radius: 2)
-                        .padding(16)
-                        .padding(.bottom, 26)
                     }
+                    .padding(16)
+                    .padding(.bottom, 26)
                 }
             }
             .onChange(of: countrySettings.selectedCountry) { selectedCountry in
                 print("MapSinglePointView Selected Country changed to: \(selectedCountry)")
                 viewModel.updateMap(selectedCountry: selectedCountry)
             }
-            .navigationTitle("Single Point")
         }
     }
     
-    func hideKeyboard() {
+    private func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

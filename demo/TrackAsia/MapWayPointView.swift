@@ -47,7 +47,6 @@ struct MapWayPointView: View {
                 print("MapWayPointView Selected Country changed to: \(selectedCountry)")
                 viewModel.updateMap(selectedCountry: selectedCountry)
             }
-            .navigationTitle("Way Points")
         }
     }
 }

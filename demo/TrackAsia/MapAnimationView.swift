@@ -40,7 +40,6 @@ struct MapAnimationView: View {
                         }
                     }
                 }
-                .navigationTitle("Map Animation")
         }
     }
 }
