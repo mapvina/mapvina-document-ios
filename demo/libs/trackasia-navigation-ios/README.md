@@ -76,8 +76,8 @@ Install this package using the [Swift Package Manager](https://www.swift.org/doc
   1. In the modal, update "Add to Target" to include your application.
   1. Complete the installation by pressing "Add Package".
 1. Add properties to `Info.plist`
-   - MLNMapboxAccessToken / String / Leave empty = Ensures that the SDK doesn't crash
-   - MLNMapboxAPIBaseURL / String / Add url = Url that is being used to GET the navigation JSON
+   - MGLMapboxAccessToken / String / Leave empty = Ensures that the SDK doesn't crash
+   - MGLMapboxAPIBaseURL / String / Add url = Url that is being used to GET the navigation JSON
    - NSLocationWhenInUseUsageDescription / String / Add a description = Needed for the location permission
 1. [optional] When app is running on device and you're having problems: Add `arm64` to `PROJECT -> <Project naam> -> Build Settings -> Excluded Architecture Only`
 1. Use the sample code as inspiration

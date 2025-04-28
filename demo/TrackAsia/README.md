@@ -1,43 +1,48 @@
-# TrackAsia iOS Demo
+# TrackAsia App Structure
 
-## Cập nhật cấu trúc mã nguồn
+## Overview
+This document outlines the organization of the TrackAsia demo iOS app code. The app has been refactored to follow a more modular, maintainable structure using SwiftUI best practices.
 
-### Tổng hợp các file utils
+## Directory Structure
 
-Để dễ dàng quản lý và bảo trì mã nguồn, các file utils đã được tổng hợp vào file `MapViewController.swift`. Cụ thể:
+### Models
+- **SearchAddressModel.swift** - Model for address search results
+- **Toast.swift** - Model for toast notifications
 
-1. Từ thư mục `TrackAsia/Utils/`:
-   - `MapUtils.swift`: Chứa các hàm tiện ích để xử lý thông tin bản đồ theo quốc gia
+### ViewModels
+- **ContentViewModel.swift** - Main view model for ContentView
+- **ContentViewCountrySettings.swift** - View model for country settings
 
-2. Từ thư mục `TrackAsia/mapview/utils/`:
-   - `ContrySettings.swift`: Quản lý cài đặt quốc gia
-   - `LocationManager.swift`: Quản lý vị trí người dùng
+### Views
+- **ContentView.swift** - Main container view that orchestrates all other views
 
-3. Các lớp khác đã được tổng hợp:
-   - `MapViewManager`: Quản lý hiển thị bản đồ
-   - `MarkerManager`: Quản lý các điểm đánh dấu trên bản đồ
-   - `AddressRepository`: Xử lý tìm kiếm địa chỉ
-   - `GeocodingRepository`: Xử lý chuyển đổi tọa độ thành địa chỉ
-   - `AddressModel` và `AddressResponse`: Mô hình dữ liệu địa chỉ
+#### Components
+- **AddressSearchView.swift** - Reusable component for address search input
+- **BottomBarView.swift** - Tab bar at the bottom of the screen
+- **TopBarView.swift** - Navigation bar at the top of the screen
 
-### Lợi ích của việc tổng hợp
+#### Tabs (one view per tab)
+- **MapSinglePointView.swift** - UI for Single Point tab
+- **MapWayPointView.swift** - UI for Multi-Point tab
+- **MapClusterView.swift** - UI for Clusters tab
+- **MapAnimationView.swift** - UI for Animation tab
+- **MapFeatureView.swift** - UI for Features tab
+- **MapCompareView.swift** - UI for Compare tab
 
-1. **Dễ bảo trì**: Tất cả các chức năng liên quan đến bản đồ được tập trung vào một file duy nhất
-2. **Giảm phụ thuộc**: Giảm sự phụ thuộc giữa các file
-3. **Dễ mở rộng**: Dễ dàng thêm chức năng mới vào hệ thống bản đồ
-4. **Dễ hiểu**: Cấu trúc mã nguồn rõ ràng với các phần được đánh dấu bằng MARK
+- **MapContainer.swift** - UIViewRepresentable wrapper for TrackAsia map
 
-### Cách sử dụng
+## Key Design Patterns
 
-Để sử dụng các chức năng bản đồ, chỉ cần import file `MapViewController.swift` vào project của bạn. Tất cả các lớp và chức năng cần thiết đều có sẵn trong file này.
+1. **MVVM Architecture** - Separation of UI (Views), business logic (ViewModels), and data (Models)
+2. **Composition** - Complex UI broken into smaller, reusable components
+3. **Dependency Injection** - ViewModels passed down to views that need them
+4. **State Management** - Using @StateObject, @ObservedObject, and @Binding appropriately
+5. **TabViewPattern** - Custom implementation for better control of map state
 
-```swift
-import SwiftUI
+## Benefits of This Structure
 
-struct YourView: View {
-    @StateObject private var viewModel = MapViewModel()
-    
-    var body: some View {
-        MapViewController(viewModel: viewModel)
-    }
-} 
+1. **Maintainability** - Smaller, focused files are easier to understand and modify
+2. **Reusability** - Components can be reused across the app
+3. **Testability** - Separated concerns make unit testing easier
+4. **Scalability** - New features can be added without modifying existing code
+5. **Collaboration** - Multiple developers can work on different views simultaneously 

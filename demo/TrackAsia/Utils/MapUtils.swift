@@ -8,12 +8,30 @@
 import Foundation
 import SwiftUI
 import TrackAsia
+import CoreLocation
 
-struct LatLng {
-    var latitude: Double
-    var longitude: Double
+public struct LatLng {
+    public var latitude: Double
+    public var longitude: Double
+    
+    public init(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
+    // Thêm phương thức chuyển đổi sang CLLocationCoordinate2D
+    public func toCLLocationCoordinate2D() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
 
+// Thêm extension để mở rộng CLLocationCoordinate2D
+public extension CLLocationCoordinate2D {
+    // Chuyển đổi từ CLLocationCoordinate2D sang LatLng
+    func toLatLng() -> LatLng {
+        return LatLng(latitude: latitude, longitude: longitude)
+    }
+}
 
 class MapUtils {
     static func urlStyle(idCountry: String?, is3D: Bool? = false) -> String {
@@ -28,27 +46,25 @@ class MapUtils {
             return is3D == false ? Constants.urlStyleSG : Constants.urlStyle3DSG
         case "th":
             return is3D == false ? Constants.urlStyleTH : Constants.urlStyle3DTH
-        case "tw":
-            return is3D == false ? Constants.urlStyleTW : Constants.urlStyle3DTW
-        case "my":
-            return is3D == false ? Constants.urlStyleMI : Constants.urlStyle3DMI
         default:
             return is3D == false ? Constants.urlStyleVN : Constants.urlStyle3DVN
         }
     }
     
-    static func urlDomain(idCountry: String?) -> String {
-        guard let idCountry = idCountry else {
-            return Constants.baseurl
-        }
-        
-        switch idCountry {
-        case "vn": return Constants.baseurl
-        case "sg": return Constants.baseurlSG
-        case "th": return Constants.baseurlTH
-        case "tw": return Constants.baseurlTW
-        case "my": return Constants.baseurlMI
-        default: return Constants.baseurl
+    static func urlDomain(idCountry: String) -> String {
+        print("🌐 urlDomain called with idCountry: \(idCountry)")
+        switch idCountry.lowercased() {
+        case "vn":
+            return "https://maps.track-asia.com"
+        case "sg": 
+            return "https://sg-maps.track-asia.com"
+        case "th": 
+            return "https://th-maps.track-asia.com"
+        case "vietnam":
+            print("✅ Using Vietnam API")
+            return "https://maps.track-asia.com"
+        default:
+            return "https://maps.track-asia.com"
         }
     }
     
@@ -60,10 +76,6 @@ class MapUtils {
                 return 10.0
             case "th":
                 return 10.0
-            case  "my":
-                return 8.0
-            case "tw" :
-                return 8.0
             default:
                 return 10.0
         }
@@ -74,9 +86,20 @@ class MapUtils {
         case "vn": return "Việt Nam"
         case "sg": return "Singapore"
         case "th": return "Thailand"
-        case "tw": return "Taiwan"
-        case "my": return "Malaysia"
         default: return "Việt Nam"
+        }
+    }
+    
+    static func getCoordinate(idCountry: String) -> CLLocationCoordinate2D {        
+        switch idCountry {
+        case "vn":
+            return CLLocationCoordinate2D(latitude: 10.728073, longitude: 106.624054)
+        case "sg":
+            return CLLocationCoordinate2D(latitude: 1.3302, longitude: 103.8104)
+        case "th":
+            return CLLocationCoordinate2D(latitude: 13.27, longitude: 101.96)
+        default:
+            return CLLocationCoordinate2D(latitude: 10.728073, longitude: 106.624054)
         }
     }
     
@@ -92,10 +115,6 @@ class MapUtils {
             return LatLng(latitude: 1.3302, longitude: 103.8104)
         case "th":
             return LatLng(latitude: 13.27, longitude: 101.96)
-        case "tw":
-            return LatLng(latitude: 23.670467, longitude: 120.960998)
-        case "my":
-            return LatLng(latitude: 3.5799465, longitude: 102.2791128)
         default:
             return LatLng(latitude: 10.728073, longitude: 106.624054)
         }

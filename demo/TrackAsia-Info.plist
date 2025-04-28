@@ -4,7 +4,15 @@
 <dict>
 	<key>GOOGLE_MAPS_API_KEY</key>
 	<string>AIzaSyDEYfN5At0Qyp5KCDhBTUaeBxYUqG-gOds</string>
-	<key>MLNMapboxAccessToken</key>
+	<key>MGLMapboxAPIBaseURL</key>
+	<string>https://api.mapbox.com</string>
+	<key>MGLMapboxAccessToken</key>
 	<string>YOUR_MAPBOX_PUBLIC_TOKEN</string>
+	<key>UIBackgroundModes</key>
+	<array/>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>

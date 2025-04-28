@@ -128,7 +128,7 @@
 ### Packaging
 
 * Moved guides and examples to [a new Mapbox Navigation SDK for iOS website](https://www.mapbox.com/ios-sdk/navigation/). ([#1552](https://github.com/mapbox/mapbox-navigation-ios/pull/1552))
-* Applications intended for use in mainland China can set the `MLNMapboxAPIBaseURL` key in Info.plist to `https://api.mapbox.cn/` to use China-optimized APIs. This setting causes `NavigationMapView` to default to China-optimized day and night styles with places and roads labeled in Simplified Chinese. ([#1558](https://github.com/mapbox/mapbox-navigation-ios/pull/1558))
+* Applications intended for use in mainland China can set the `MGLMapboxAPIBaseURL` key in Info.plist to `https://api.mapbox.cn/` to use China-optimized APIs. This setting causes `NavigationMapView` to default to China-optimized day and night styles with places and roads labeled in Simplified Chinese. ([#1558](https://github.com/mapbox/mapbox-navigation-ios/pull/1558))
 
 ### User interface
 
@@ -575,7 +575,7 @@ Beginning with this release, the navigation SDK and Core Navigation are written 
 
 * Xcode 9 is required for building the navigation SDK or Core Navigation. (#786)
 * Added German and Dutch localizations. [Help us speak your language!](https://www.transifex.com/mapbox/mapbox-navigation-ios/dashboard/) (#778)
-* To build and run the provided sample applications, you now have the option to create a plain text file named .mapbox containing a Mapbox access token and place it in your home folder. The SDK will read this file and automatically populate the `MLNMapboxAccessToken` of the `Info.plist` at build-time. (#817)
+* To build and run the provided sample applications, you now have the option to create a plain text file named .mapbox containing a Mapbox access token and place it in your home folder. The SDK will read this file and automatically populate the `MGLMapboxAccessToken` of the `Info.plist` at build-time. (#817)
 
 ### Instruction banner
 

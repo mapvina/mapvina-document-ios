@@ -29,28 +29,61 @@ class MarkerManager: ObservableObject {
         markers.removeAll()
     }
     
-    func addPolyline(at coordinate: CLLocationCoordinate2D) {
+    func addPolyline(coordinates: [CLLocationCoordinate2D]) {
+        guard !coordinates.isEmpty, coordinates.count >= 2 else {
+            print("Cần ít nhất 2 tọa độ để tạo polyline")
+            return
+        }
+        
+        // Tạo polyline MLN từ danh sách tọa độ
+        let polyline = MLNPolyline(coordinates: coordinates, count: UInt(coordinates.count))
+        polyline.title = "Feature polyline"
+        
+        // Định nghĩa thuộc tính hiển thị
         if let mapView = mapView {
-            guard markers.count >= 1 else { return }
+            mapView.add(polyline)
             
-            var coordinates: [CLLocationCoordinate2D] = []
-            for marker in markers {
-                coordinates.append(marker.coordinate)
-            }
-            polyline = MLNPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
-            mapView.add(polyline!)
+            // Zoom đến mức vừa đủ để hiển thị polyline
+            let bounds = getCoordinateBounds(for: coordinates)
+            let insets = UIEdgeInsets(top: 80, left: 80, bottom: 80, right: 80)
+            mapView.setVisibleCoordinateBounds(bounds, edgePadding: insets, animated: true)
         }
     }
     
-    func addPolygon(at coordinate: CLLocationCoordinate2D) {
-           guard markers.count >= 1 else { return }
-
-           var coordinates: [CLLocationCoordinate2D] = []
-           for marker in markers {
-               coordinates.append(marker.coordinate)
-           }
-
-           polygon = MLNPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
-        mapView?.add(polygon!)
-       }
+    // Thêm phương thức xử lý polygon với danh sách tọa độ
+    func addPolygon(coordinates: [CLLocationCoordinate2D]) {
+        guard !coordinates.isEmpty, coordinates.count >= 3 else {
+            print("Cần ít nhất 3 tọa độ để tạo polygon")
+            return
+        }
+        
+        // Tạo polygon MLN từ danh sách tọa độ
+        let polygon = MLNPolygon(coordinates: coordinates, count: UInt(coordinates.count))
+        polygon.title = "Feature polygon"
+        
+        // Định nghĩa thuộc tính hiển thị
+        if let mapView = mapView {
+            mapView.add(polygon)
+            
+            // Zoom đến mức vừa đủ để hiển thị polygon
+            let bounds = getCoordinateBounds(for: coordinates)
+            let insets = UIEdgeInsets(top: 80, left: 80, bottom: 80, right: 80)
+            mapView.setVisibleCoordinateBounds(bounds, edgePadding: insets, animated: true)
+        }
+    }
+    
+    // Helper để tính toán bounds từ danh sách tọa độ
+    private func getCoordinateBounds(for coordinates: [CLLocationCoordinate2D]) -> MLNCoordinateBounds {
+        // Tìm tọa độ nhỏ nhất và lớn nhất
+        let minLat = coordinates.map { $0.latitude }.min() ?? 0
+        let maxLat = coordinates.map { $0.latitude }.max() ?? 0
+        let minLng = coordinates.map { $0.longitude }.min() ?? 0
+        let maxLng = coordinates.map { $0.longitude }.max() ?? 0
+        
+        // Tạo northeast và southwest
+        let northeast = CLLocationCoordinate2D(latitude: maxLat, longitude: maxLng)
+        let southwest = CLLocationCoordinate2D(latitude: minLat, longitude: minLng)
+        
+        return MLNCoordinateBounds(sw: southwest, ne: northeast)
+    }
 }

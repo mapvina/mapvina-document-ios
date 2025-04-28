@@ -3,20 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		79E67062F79C4027D503997F /* Pods_TrackAsiaLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaLive.framework */; };
-		9903E8552B4D1B7B00A7C4EF /* MapCompareGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903E8542B4D1B7B00A7C4EF /* MapCompareGoogleView.swift */; };
 		9903E85A2B4D225000A7C4EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903E8592B4D225000A7C4EF /* AppDelegate.swift */; };
 		990504BD2D7552EF00642B35 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 990504BC2D7552EF00642B35 /* MapboxNavigation */; };
 		990A55EC2D7A0B9000AB7E9C /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 990A55EB2D7A0B9000AB7E9C /* MapboxNavigation */; };
 		990A55EF2D7A0DDA00AB7E9C /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 990A55EE2D7A0DDA00AB7E9C /* MapboxNavigation */; };
+		9915110C2DBB440400B8F197 /* MapSinglePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511042DBB440400B8F197 /* MapSinglePointView.swift */; };
+		9915110D2DBB440400B8F197 /* MapWayPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511052DBB440400B8F197 /* MapWayPointView.swift */; };
+		9915110F2DBB440400B8F197 /* MapFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511032DBB440400B8F197 /* MapFeatureView.swift */; };
+		991511102DBB440400B8F197 /* DirectTouchMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991510FF2DBB440400B8F197 /* DirectTouchMapView.swift */; };
+		991511112DBB440400B8F197 /* MapAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511002DBB440400B8F197 /* MapAnimationView.swift */; };
+		991511132DBB440400B8F197 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991510FD2DBB440400B8F197 /* TopBarView.swift */; };
+		991511142DBB440400B8F197 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991510FC2DBB440400B8F197 /* BottomBarView.swift */; };
+		991511152DBB440400B8F197 /* MapCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511022DBB440400B8F197 /* MapCompareView.swift */; };
+		991511162DBB440400B8F197 /* MapContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511092DBB440400B8F197 /* MapContainer.swift */; };
+		991511172DBB440400B8F197 /* MapClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511012DBB440400B8F197 /* MapClusterView.swift */; };
+		991511182DBB440400B8F197 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991511082DBB440400B8F197 /* ContentView.swift */; };
+		991511192DBB440400B8F197 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9915110A2DBB440400B8F197 /* README.md */; };
 		99222F152B4E9B5100FB8EDD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99222F142B4E9B5100FB8EDD /* Constants.swift */; };
 		99222F182B4E9CEE00FB8EDD /* MapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99222F172B4E9CEE00FB8EDD /* MapUtils.swift */; };
 		992D9C6F2D780571006A920F /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 992D9C6E2D780571006A920F /* MapboxNavigation */; };
-		995DCBE12D81746E00F94EC9 /* TrackAsia in Frameworks */ = {isa = PBXBuildFile; productRef = 995DCBE02D81746E00F94EC9 /* TrackAsia */; };
 		995DCBE52D8175CB00F94EC9 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 995DCBE42D8175CB00F94EC9 /* MapboxNavigation */; };
 		9971AA1C2B31717200A57F1C /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9971AA1B2B31717200A57F1C /* AddressModel.swift */; };
 		9971AA1F2B3171B300A57F1C /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9971AA1E2B3171B300A57F1C /* DataResponse.swift */; };
@@ -24,28 +34,23 @@
 		997D34EB2D794ABB00F9A906 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 997D34EA2D794ABB00F9A906 /* MapboxNavigation */; };
 		99834ACD2B83101F00BD4785 /* ContrySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99834ACC2B83101F00BD4785 /* ContrySettings.swift */; };
 		99834ACF2B8339F800BD4785 /* MapViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99834ACE2B8339F800BD4785 /* MapViewManager.swift */; };
+		998573702DB7288D00290C22 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 9985736F2DB7288D00290C22 /* MapboxNavigation */; };
 		99898A1F2D7A898E004ED9B0 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 99898A1E2D7A898E004ED9B0 /* MapboxNavigation */; };
 		9991619B2B3BB79300BC3D44 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9991619A2B3BB79300BC3D44 /* LocationManager.swift */; };
 		9991619D2B3BBCE100BC3D44 /* MarkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9991619C2B3BBCE100BC3D44 /* MarkerManager.swift */; };
 		9991619F2B3BFEF700BC3D44 /* AnimationLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9991619E2B3BFEF700BC3D44 /* AnimationLineView.swift */; };
+		9997256A2DBF6B2C00FCCE35 /* ClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999725692DBF6B2C00FCCE35 /* ClusterView.swift */; };
 		99A07F202D7ED19E00F1BEDD /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 99A07F1F2D7ED19E00F1BEDD /* MapboxNavigation */; };
 		99A2136A2B3A8AE300D3DB47 /* PolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A213692B3A8AE300D3DB47 /* PolylineView.swift */; };
-		99A2136C2B3A8FD500D3DB47 /* ClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2136B2B3A8FD500D3DB47 /* ClusterView.swift */; };
 		99A2136E2B3ABE3C00D3DB47 /* WayPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2136D2B3ABE3B00D3DB47 /* WayPointView.swift */; };
 		99A213722B3ACDB400D3DB47 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A213712B3ACDB400D3DB47 /* RouteHandler.swift */; };
 		99EA7C632B294F9B00B58487 /* TrackAsiaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C622B294F9B00B58487 /* TrackAsiaDemoApp.swift */; };
-		99EA7C652B294F9B00B58487 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C642B294F9B00B58487 /* ContentView.swift */; };
 		99EA7C672B294F9C00B58487 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EA7C662B294F9C00B58487 /* Assets.xcassets */; };
 		99EA7C6A2B294F9C00B58487 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EA7C692B294F9C00B58487 /* Preview Assets.xcassets */; };
 		99EA7C742B294F9D00B58487 /* TrackAsiaDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C732B294F9D00B58487 /* TrackAsiaDemoTests.swift */; };
 		99EA7C7E2B294F9D00B58487 /* TrackAsiaDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C7D2B294F9D00B58487 /* TrackAsiaDemoUITests.swift */; };
 		99EA7C802B294F9D00B58487 /* TrackAsiaDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C7F2B294F9D00B58487 /* TrackAsiaDemoUITestsLaunchTests.swift */; };
 		99EA7C912B29544F00B58487 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C902B29544F00B58487 /* MapViewController.swift */; };
-		99EA7C932B2957DD00B58487 /* MapSinglePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C922B2957DD00B58487 /* MapSinglePointView.swift */; };
-		99EA7C982B29592C00B58487 /* MapFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C942B29592C00B58487 /* MapFeatureView.swift */; };
-		99EA7C992B29592C00B58487 /* MapClutterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C952B29592C00B58487 /* MapClutterView.swift */; };
-		99EA7C9A2B29592C00B58487 /* MapWayPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C962B29592C00B58487 /* MapWayPointView.swift */; };
-		99EA7C9B2B29592C00B58487 /* MapAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA7C972B29592C00B58487 /* MapAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +77,20 @@
 		52D77EE1319859931B828689 /* Pods-TrackAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsia.debug.xcconfig"; path = "Target Support Files/Pods-TrackAsia/Pods-TrackAsia.debug.xcconfig"; sourceTree = "<group>"; };
 		856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaLive.debug.xcconfig"; path = "Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive.debug.xcconfig"; sourceTree = "<group>"; };
 		9010BBCBF274FCA64046699E /* Pods-TrackAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsia.release.xcconfig"; path = "Target Support Files/Pods-TrackAsia/Pods-TrackAsia.release.xcconfig"; sourceTree = "<group>"; };
-		9903E8542B4D1B7B00A7C4EF /* MapCompareGoogleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCompareGoogleView.swift; sourceTree = "<group>"; };
 		9903E8582B4D1FF400A7C4EF /* TrackAsia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TrackAsia-Info.plist"; sourceTree = "<group>"; };
 		9903E8592B4D225000A7C4EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		991510FC2DBB440400B8F197 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		991510FD2DBB440400B8F197 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		991510FF2DBB440400B8F197 /* DirectTouchMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectTouchMapView.swift; sourceTree = "<group>"; };
+		991511002DBB440400B8F197 /* MapAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnimationView.swift; sourceTree = "<group>"; };
+		991511012DBB440400B8F197 /* MapClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapClusterView.swift; sourceTree = "<group>"; };
+		991511022DBB440400B8F197 /* MapCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCompareView.swift; sourceTree = "<group>"; };
+		991511032DBB440400B8F197 /* MapFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFeatureView.swift; sourceTree = "<group>"; };
+		991511042DBB440400B8F197 /* MapSinglePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSinglePointView.swift; sourceTree = "<group>"; };
+		991511052DBB440400B8F197 /* MapWayPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWayPointView.swift; sourceTree = "<group>"; };
+		991511082DBB440400B8F197 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		991511092DBB440400B8F197 /* MapContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainer.swift; sourceTree = "<group>"; };
+		9915110A2DBB440400B8F197 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		99222F142B4E9B5100FB8EDD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99222F172B4E9CEE00FB8EDD /* MapUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUtils.swift; sourceTree = "<group>"; };
 		9971AA1B2B31717200A57F1C /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
@@ -85,14 +101,13 @@
 		9991619A2B3BB79300BC3D44 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9991619C2B3BBCE100BC3D44 /* MarkerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerManager.swift; sourceTree = "<group>"; };
 		9991619E2B3BFEF700BC3D44 /* AnimationLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLineView.swift; sourceTree = "<group>"; };
+		999725692DBF6B2C00FCCE35 /* ClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterView.swift; sourceTree = "<group>"; };
 		99A213692B3A8AE300D3DB47 /* PolylineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineView.swift; sourceTree = "<group>"; };
-		99A2136B2B3A8FD500D3DB47 /* ClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterView.swift; sourceTree = "<group>"; };
 		99A2136D2B3ABE3B00D3DB47 /* WayPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayPointView.swift; sourceTree = "<group>"; };
 		99A213712B3ACDB400D3DB47 /* RouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
 		99E9DF892D70269800EC87B9 /* TrackAsia.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TrackAsia.xcframework; path = libs/TrackAsia.xcframework; sourceTree = "<group>"; };
 		99EA7C5F2B294F9B00B58487 /* TrackAsiaLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackAsiaLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA7C622B294F9B00B58487 /* TrackAsiaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoApp.swift; sourceTree = "<group>"; };
-		99EA7C642B294F9B00B58487 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		99EA7C662B294F9C00B58487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99EA7C692B294F9C00B58487 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99EA7C6F2B294F9D00B58487 /* TrackAsiaLiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackAsiaLiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,11 +116,6 @@
 		99EA7C7D2B294F9D00B58487 /* TrackAsiaDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoUITests.swift; sourceTree = "<group>"; };
 		99EA7C7F2B294F9D00B58487 /* TrackAsiaDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		99EA7C902B29544F00B58487 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		99EA7C922B2957DD00B58487 /* MapSinglePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSinglePointView.swift; sourceTree = "<group>"; };
-		99EA7C942B29592C00B58487 /* MapFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFeatureView.swift; sourceTree = "<group>"; };
-		99EA7C952B29592C00B58487 /* MapClutterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapClutterView.swift; sourceTree = "<group>"; };
-		99EA7C962B29592C00B58487 /* MapWayPointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapWayPointView.swift; sourceTree = "<group>"; };
-		99EA7C972B29592C00B58487 /* MapAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnimationView.swift; sourceTree = "<group>"; };
 		99EA7C9F2B29B15200B58487 /* MapboxNavigation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxNavigation.xcframework; path = libs/MapboxNavigation.xcframework; sourceTree = "<group>"; };
 		99EA7CA02B29B15200B58487 /* MapboxSpeech.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxSpeech.xcframework; path = libs/MapboxSpeech.xcframework; sourceTree = "<group>"; };
 		99EA7CA12B29B15200B58487 /* Turf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Turf.xcframework; path = libs/Turf.xcframework; sourceTree = "<group>"; };
@@ -129,9 +139,9 @@
 				990504BD2D7552EF00642B35 /* MapboxNavigation in Frameworks */,
 				79E67062F79C4027D503997F /* Pods_TrackAsiaLive.framework in Frameworks */,
 				992D9C6F2D780571006A920F /* MapboxNavigation in Frameworks */,
+				998573702DB7288D00290C22 /* MapboxNavigation in Frameworks */,
 				995DCBE52D8175CB00F94EC9 /* MapboxNavigation in Frameworks */,
 				997D34EB2D794ABB00F9A906 /* MapboxNavigation in Frameworks */,
-				995DCBE12D81746E00F94EC9 /* TrackAsia in Frameworks */,
 				99898A1F2D7A898E004ED9B0 /* MapboxNavigation in Frameworks */,
 				99A07F202D7ED19E00F1BEDD /* MapboxNavigation in Frameworks */,
 			);
@@ -167,6 +177,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		991510FE2DBB440400B8F197 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				991510FC2DBB440400B8F197 /* BottomBarView.swift */,
+				991510FD2DBB440400B8F197 /* TopBarView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		991511062DBB440400B8F197 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				991510FF2DBB440400B8F197 /* DirectTouchMapView.swift */,
+				991511002DBB440400B8F197 /* MapAnimationView.swift */,
+				991511012DBB440400B8F197 /* MapClusterView.swift */,
+				991511022DBB440400B8F197 /* MapCompareView.swift */,
+				991511032DBB440400B8F197 /* MapFeatureView.swift */,
+				991511042DBB440400B8F197 /* MapSinglePointView.swift */,
+				991511052DBB440400B8F197 /* MapWayPointView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		9915110B2DBB440400B8F197 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				991510FE2DBB440400B8F197 /* Components */,
+				991511062DBB440400B8F197 /* Tabs */,
+				991511082DBB440400B8F197 /* ContentView.swift */,
+				991511092DBB440400B8F197 /* MapContainer.swift */,
+				9915110A2DBB440400B8F197 /* README.md */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		99222F162B4E9CD900FB8EDD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,13 +230,6 @@
 			path = server;
 			sourceTree = "<group>";
 		};
-		9971AA222B3172CD00A57F1C /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomView;
-			sourceTree = "<group>";
-		};
 		999161992B3BB77E00BC3D44 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				99A213692B3A8AE300D3DB47 /* PolylineView.swift */,
-				99A2136B2B3A8FD500D3DB47 /* ClusterView.swift */,
+				999725692DBF6B2C00FCCE35 /* ClusterView.swift */,
 				99A2136D2B3ABE3B00D3DB47 /* WayPointView.swift */,
 				99A213712B3ACDB400D3DB47 /* RouteHandler.swift */,
 				9991619C2B3BBCE100BC3D44 /* MarkerManager.swift */,
@@ -241,18 +279,11 @@
 		99EA7C612B294F9B00B58487 /* TrackAsia */ = {
 			isa = PBXGroup;
 			children = (
+				9915110B2DBB440400B8F197 /* Views */,
 				99222F162B4E9CD900FB8EDD /* Utils */,
-				9971AA222B3172CD00A57F1C /* CustomView */,
 				9971AA1D2B3171A200A57F1C /* server */,
 				99EA7C8F2B29542900B58487 /* mapview */,
 				99EA7C622B294F9B00B58487 /* TrackAsiaDemoApp.swift */,
-				99EA7C642B294F9B00B58487 /* ContentView.swift */,
-				9903E8542B4D1B7B00A7C4EF /* MapCompareGoogleView.swift */,
-				99EA7C972B29592C00B58487 /* MapAnimationView.swift */,
-				99EA7C952B29592C00B58487 /* MapClutterView.swift */,
-				99EA7C942B29592C00B58487 /* MapFeatureView.swift */,
-				99EA7C962B29592C00B58487 /* MapWayPointView.swift */,
-				99EA7C922B2957DD00B58487 /* MapSinglePointView.swift */,
 				99EA7C662B294F9C00B58487 /* Assets.xcassets */,
 				99EA7C682B294F9C00B58487 /* Preview Content */,
 				99222F142B4E9B5100FB8EDD /* Constants.swift */,
@@ -350,8 +381,8 @@
 				990A55EE2D7A0DDA00AB7E9C /* MapboxNavigation */,
 				99898A1E2D7A898E004ED9B0 /* MapboxNavigation */,
 				99A07F1F2D7ED19E00F1BEDD /* MapboxNavigation */,
-				995DCBE02D81746E00F94EC9 /* TrackAsia */,
 				995DCBE42D8175CB00F94EC9 /* MapboxNavigation */,
+				9985736F2DB7288D00290C22 /* MapboxNavigation */,
 			);
 			productName = TrackAsiaDemo;
 			productReference = 99EA7C5F2B294F9B00B58487 /* TrackAsiaLive.app */;
@@ -426,8 +457,7 @@
 			);
 			mainGroup = 99EA7C562B294F9B00B58487;
 			packageReferences = (
-				995DCBDF2D81746E00F94EC9 /* XCRemoteSwiftPackageReference "trackasia-gl-native-distribution" */,
-				995DCBE32D8175CB00F94EC9 /* XCLocalSwiftPackageReference "../../trackasia-navigation-ios" */,
+				9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "trackasia-navigation-ios" */,
 			);
 			productRefGroup = 99EA7C602B294F9B00B58487 /* Products */;
 			projectDirPath = "";
@@ -445,6 +475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				991511192DBB440400B8F197 /* README.md in Resources */,
 				99EA7C6A2B294F9C00B58487 /* Preview Assets.xcassets in Resources */,
 				99EA7C672B294F9C00B58487 /* Assets.xcassets in Resources */,
 			);
@@ -497,9 +528,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -514,9 +549,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -530,27 +569,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99EA7C982B29592C00B58487 /* MapFeatureView.swift in Sources */,
 				9991619F2B3BFEF700BC3D44 /* AnimationLineView.swift in Sources */,
 				9991619B2B3BB79300BC3D44 /* LocationManager.swift in Sources */,
-				99EA7C932B2957DD00B58487 /* MapSinglePointView.swift in Sources */,
 				9971AA212B3171DF00A57F1C /* DataRepository.swift in Sources */,
-				99EA7C9B2B29592C00B58487 /* MapAnimationView.swift in Sources */,
+				9915110C2DBB440400B8F197 /* MapSinglePointView.swift in Sources */,
+				9915110D2DBB440400B8F197 /* MapWayPointView.swift in Sources */,
+				9915110F2DBB440400B8F197 /* MapFeatureView.swift in Sources */,
+				991511102DBB440400B8F197 /* DirectTouchMapView.swift in Sources */,
+				991511112DBB440400B8F197 /* MapAnimationView.swift in Sources */,
+				991511132DBB440400B8F197 /* TopBarView.swift in Sources */,
+				991511142DBB440400B8F197 /* BottomBarView.swift in Sources */,
+				991511152DBB440400B8F197 /* MapCompareView.swift in Sources */,
+				991511162DBB440400B8F197 /* MapContainer.swift in Sources */,
+				991511172DBB440400B8F197 /* MapClusterView.swift in Sources */,
+				991511182DBB440400B8F197 /* ContentView.swift in Sources */,
 				99834ACF2B8339F800BD4785 /* MapViewManager.swift in Sources */,
+				9997256A2DBF6B2C00FCCE35 /* ClusterView.swift in Sources */,
 				99A2136A2B3A8AE300D3DB47 /* PolylineView.swift in Sources */,
-				99EA7C652B294F9B00B58487 /* ContentView.swift in Sources */,
-				9903E8552B4D1B7B00A7C4EF /* MapCompareGoogleView.swift in Sources */,
 				99EA7C912B29544F00B58487 /* MapViewController.swift in Sources */,
 				9971AA1C2B31717200A57F1C /* AddressModel.swift in Sources */,
-				99EA7C9A2B29592C00B58487 /* MapWayPointView.swift in Sources */,
 				99A213722B3ACDB400D3DB47 /* RouteHandler.swift in Sources */,
 				99EA7C632B294F9B00B58487 /* TrackAsiaDemoApp.swift in Sources */,
 				9971AA1F2B3171B300A57F1C /* DataResponse.swift in Sources */,
 				99A2136E2B3ABE3C00D3DB47 /* WayPointView.swift in Sources */,
 				99834ACD2B83101F00BD4785 /* ContrySettings.swift in Sources */,
 				9991619D2B3BBCE100BC3D44 /* MarkerManager.swift in Sources */,
-				99EA7C992B29592C00B58487 /* MapClutterView.swift in Sources */,
-				99A2136C2B3A8FD500D3DB47 /* ClusterView.swift in Sources */,
 				9903E85A2B4D225000A7C4EF /* AppDelegate.swift in Sources */,
 				99222F182B4E9CEE00FB8EDD /* MapUtils.swift in Sources */,
 				99222F152B4E9B5100FB8EDD /* Constants.swift in Sources */,
@@ -916,17 +959,10 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		995DCBE32D8175CB00F94EC9 /* XCLocalSwiftPackageReference "../../trackasia-navigation-ios" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../trackasia-navigation-ios";
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
-		995DCBDF2D81746E00F94EC9 /* XCRemoteSwiftPackageReference "trackasia-gl-native-distribution" */ = {
+		9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "trackasia-navigation-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/track-asia/trackasia-gl-native-distribution";
+			repositoryURL = "https://github.com/track-asia/trackasia-navigation-ios";
 			requirement = {
 				branch = 2.0.3;
 				kind = branch;
@@ -951,17 +987,17 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = MapboxNavigation;
 		};
-		995DCBE02D81746E00F94EC9 /* TrackAsia */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 995DCBDF2D81746E00F94EC9 /* XCRemoteSwiftPackageReference "trackasia-gl-native-distribution" */;
-			productName = TrackAsia;
-		};
 		995DCBE42D8175CB00F94EC9 /* MapboxNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MapboxNavigation;
 		};
 		997D34EA2D794ABB00F9A906 /* MapboxNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = MapboxNavigation;
+		};
+		9985736F2DB7288D00290C22 /* MapboxNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "trackasia-navigation-ios" */;
 			productName = MapboxNavigation;
 		};
 		99898A1E2D7A898E004ED9B0 /* MapboxNavigation */ = {

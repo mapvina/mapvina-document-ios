@@ -3,20 +3,24 @@ PODS:
   - GoogleMaps (9.3.0):
     - GoogleMaps/Maps (= 9.3.0)
   - GoogleMaps/Maps (9.3.0)
+  - MapboxGeocoder.swift (0.15.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.6)
+  - Alamofire (~> 5.10.2)
   - GoogleMaps (= 9.3.0)
+  - MapboxGeocoder.swift (~> 0.15)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - GoogleMaps
+    - MapboxGeocoder.swift
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   GoogleMaps: b58e9627004f47043897eeae830c3ef023678f3b
+  MapboxGeocoder.swift: 730782e5f4324b7283a0f6c740c180f3086158e2
 
-PODFILE CHECKSUM: 6bbcdafca19dec59f34e31e31602089551aa18a2
+PODFILE CHECKSUM: efb6cd3f2329d31295f5623c4ae2774598f97996
 
 COCOAPODS: 1.16.2
