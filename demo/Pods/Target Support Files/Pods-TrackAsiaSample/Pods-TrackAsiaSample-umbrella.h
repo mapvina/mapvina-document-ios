@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TrackAsiaLiveVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TrackAsiaLiveVersionString[];
+FOUNDATION_EXPORT double Pods_TrackAsiaSampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_TrackAsiaSampleVersionString[];
 

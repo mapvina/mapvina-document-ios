@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79E67062F79C4027D503997F /* Pods_TrackAsiaLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaLive.framework */; };
+		79E67062F79C4027D503997F /* Pods_TrackAsiaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaSample.framework */; };
 		9903E85A2B4D225000A7C4EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903E8592B4D225000A7C4EF /* AppDelegate.swift */; };
 		990504BD2D7552EF00642B35 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 990504BC2D7552EF00642B35 /* MapboxNavigation */; };
 		990A55EC2D7A0B9000AB7E9C /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 990A55EB2D7A0B9000AB7E9C /* MapboxNavigation */; };
@@ -72,10 +72,10 @@
 
 /* Begin PBXFileReference section */
 		0E1A9293B5D122E8AF0CC35B /* Pods-TrackAsiaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaDemo.debug.xcconfig"; path = "Target Support Files/Pods-TrackAsiaDemo/Pods-TrackAsiaDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackAsiaLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackAsiaSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3495412E43F57CC6E3400B95 /* Pods-TrackAsiaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaDemo.release.xcconfig"; path = "Target Support Files/Pods-TrackAsiaDemo/Pods-TrackAsiaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		52D77EE1319859931B828689 /* Pods-TrackAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsia.debug.xcconfig"; path = "Target Support Files/Pods-TrackAsia/Pods-TrackAsia.debug.xcconfig"; sourceTree = "<group>"; };
-		856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaLive.debug.xcconfig"; path = "Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive.debug.xcconfig"; sourceTree = "<group>"; };
+		856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaSample.debug.xcconfig"; path = "Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample.debug.xcconfig"; sourceTree = "<group>"; };
 		9010BBCBF274FCA64046699E /* Pods-TrackAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsia.release.xcconfig"; path = "Target Support Files/Pods-TrackAsia/Pods-TrackAsia.release.xcconfig"; sourceTree = "<group>"; };
 		9903E8582B4D1FF400A7C4EF /* TrackAsia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TrackAsia-Info.plist"; sourceTree = "<group>"; };
 		9903E8592B4D225000A7C4EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,13 +106,13 @@
 		99A2136D2B3ABE3B00D3DB47 /* WayPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayPointView.swift; sourceTree = "<group>"; };
 		99A213712B3ACDB400D3DB47 /* RouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
 		99E9DF892D70269800EC87B9 /* TrackAsia.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TrackAsia.xcframework; path = libs/TrackAsia.xcframework; sourceTree = "<group>"; };
-		99EA7C5F2B294F9B00B58487 /* TrackAsiaLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackAsiaLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99EA7C5F2B294F9B00B58487 /* TrackAsiaSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackAsiaSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA7C622B294F9B00B58487 /* TrackAsiaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoApp.swift; sourceTree = "<group>"; };
 		99EA7C662B294F9C00B58487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99EA7C692B294F9C00B58487 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		99EA7C6F2B294F9D00B58487 /* TrackAsiaLiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackAsiaLiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99EA7C6F2B294F9D00B58487 /* TrackAsiaSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackAsiaSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA7C732B294F9D00B58487 /* TrackAsiaDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoTests.swift; sourceTree = "<group>"; };
-		99EA7C792B294F9D00B58487 /* TrackAsiaLiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackAsiaLiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99EA7C792B294F9D00B58487 /* TrackAsiaSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackAsiaSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA7C7D2B294F9D00B58487 /* TrackAsiaDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoUITests.swift; sourceTree = "<group>"; };
 		99EA7C7F2B294F9D00B58487 /* TrackAsiaDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAsiaDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		99EA7C902B29544F00B58487 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		99EA7CA52B29B15300B58487 /* Solar.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Solar.xcframework; path = libs/Solar.xcframework; sourceTree = "<group>"; };
 		99EA7CA62B29B15300B58487 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = libs/Mapbox.framework; sourceTree = "<group>"; };
 		99EA7CA72B29B15300B58487 /* Polyline.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Polyline.xcframework; path = libs/Polyline.xcframework; sourceTree = "<group>"; };
-		B24B301A15C74E9F0E56B87F /* Pods-TrackAsiaLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaLive.release.xcconfig"; path = "Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive.release.xcconfig"; sourceTree = "<group>"; };
+		B24B301A15C74E9F0E56B87F /* Pods-TrackAsiaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackAsiaSample.release.xcconfig"; path = "Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample.release.xcconfig"; sourceTree = "<group>"; };
 		F083E8FB9EA3290E61FFFA9C /* Pods_TrackAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,7 +137,7 @@
 				990A55EC2D7A0B9000AB7E9C /* MapboxNavigation in Frameworks */,
 				990A55EF2D7A0DDA00AB7E9C /* MapboxNavigation in Frameworks */,
 				990504BD2D7552EF00642B35 /* MapboxNavigation in Frameworks */,
-				79E67062F79C4027D503997F /* Pods_TrackAsiaLive.framework in Frameworks */,
+				79E67062F79C4027D503997F /* Pods_TrackAsiaSample.framework in Frameworks */,
 				992D9C6F2D780571006A920F /* MapboxNavigation in Frameworks */,
 				998573702DB7288D00290C22 /* MapboxNavigation in Frameworks */,
 				995DCBE52D8175CB00F94EC9 /* MapboxNavigation in Frameworks */,
@@ -171,8 +171,8 @@
 				9010BBCBF274FCA64046699E /* Pods-TrackAsia.release.xcconfig */,
 				0E1A9293B5D122E8AF0CC35B /* Pods-TrackAsiaDemo.debug.xcconfig */,
 				3495412E43F57CC6E3400B95 /* Pods-TrackAsiaDemo.release.xcconfig */,
-				856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaLive.debug.xcconfig */,
-				B24B301A15C74E9F0E56B87F /* Pods-TrackAsiaLive.release.xcconfig */,
+				856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaSample.debug.xcconfig */,
+				B24B301A15C74E9F0E56B87F /* Pods-TrackAsiaSample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -258,8 +258,8 @@
 			children = (
 				9903E8582B4D1FF400A7C4EF /* TrackAsia-Info.plist */,
 				99EA7C612B294F9B00B58487 /* TrackAsia */,
-				99EA7C722B294F9D00B58487 /* TrackAsiaLiveTests */,
-				99EA7C7C2B294F9D00B58487 /* TrackAsiaLiveUITests */,
+				99EA7C722B294F9D00B58487 /* TrackAsiaSampleTests */,
+				99EA7C7C2B294F9D00B58487 /* TrackAsiaSampleUITests */,
 				99EA7C602B294F9B00B58487 /* Products */,
 				1ED0A6D6954A3C8548BA5643 /* Pods */,
 				C606FEFF4ACD7ACE640250EE /* Frameworks */,
@@ -269,9 +269,9 @@
 		99EA7C602B294F9B00B58487 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99EA7C5F2B294F9B00B58487 /* TrackAsiaLive.app */,
-				99EA7C6F2B294F9D00B58487 /* TrackAsiaLiveTests.xctest */,
-				99EA7C792B294F9D00B58487 /* TrackAsiaLiveUITests.xctest */,
+				99EA7C5F2B294F9B00B58487 /* TrackAsiaSample.app */,
+				99EA7C6F2B294F9D00B58487 /* TrackAsiaSampleTests.xctest */,
+				99EA7C792B294F9D00B58487 /* TrackAsiaSampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,21 +299,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		99EA7C722B294F9D00B58487 /* TrackAsiaLiveTests */ = {
+		99EA7C722B294F9D00B58487 /* TrackAsiaSampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				99EA7C732B294F9D00B58487 /* TrackAsiaDemoTests.swift */,
 			);
-			path = TrackAsiaLiveTests;
+			path = TrackAsiaSampleTests;
 			sourceTree = "<group>";
 		};
-		99EA7C7C2B294F9D00B58487 /* TrackAsiaLiveUITests */ = {
+		99EA7C7C2B294F9D00B58487 /* TrackAsiaSampleUITests */ = {
 			isa = PBXGroup;
 			children = (
 				99EA7C7D2B294F9D00B58487 /* TrackAsiaDemoUITests.swift */,
 				99EA7C7F2B294F9D00B58487 /* TrackAsiaDemoUITestsLaunchTests.swift */,
 			);
-			path = TrackAsiaLiveUITests;
+			path = TrackAsiaSampleUITests;
 			sourceTree = "<group>";
 		};
 		99EA7C8F2B29542900B58487 /* mapview */ = {
@@ -349,7 +349,7 @@
 				99EA7CA52B29B15300B58487 /* Solar.xcframework */,
 				99EA7CA12B29B15200B58487 /* Turf.xcframework */,
 				F083E8FB9EA3290E61FFFA9C /* Pods_TrackAsia.framework */,
-				0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaLive.framework */,
+				0F1F95BC072F63988B125BF4 /* Pods_TrackAsiaSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -357,9 +357,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		99EA7C5E2B294F9B00B58487 /* TrackAsiaLive */ = {
+		99EA7C5E2B294F9B00B58487 /* TrackAsiaSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99EA7C832B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaLive" */;
+			buildConfigurationList = 99EA7C832B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaSample" */;
 			buildPhases = (
 				3A6220820DBB090F7473720D /* [CP] Check Pods Manifest.lock */,
 				99EA7C5B2B294F9B00B58487 /* Sources */,
@@ -372,7 +372,7 @@
 			);
 			dependencies = (
 			);
-			name = TrackAsiaLive;
+			name = TrackAsiaSample;
 			packageProductDependencies = (
 				990504BC2D7552EF00642B35 /* MapboxNavigation */,
 				992D9C6E2D780571006A920F /* MapboxNavigation */,
@@ -385,12 +385,12 @@
 				9985736F2DB7288D00290C22 /* MapboxNavigation */,
 			);
 			productName = TrackAsiaDemo;
-			productReference = 99EA7C5F2B294F9B00B58487 /* TrackAsiaLive.app */;
+			productReference = 99EA7C5F2B294F9B00B58487 /* TrackAsiaSample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		99EA7C6E2B294F9D00B58487 /* TrackAsiaLiveTests */ = {
+		99EA7C6E2B294F9D00B58487 /* TrackAsiaSampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99EA7C862B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaLiveTests" */;
+			buildConfigurationList = 99EA7C862B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaSampleTests" */;
 			buildPhases = (
 				99EA7C6B2B294F9D00B58487 /* Sources */,
 				99EA7C6C2B294F9D00B58487 /* Frameworks */,
@@ -401,14 +401,14 @@
 			dependencies = (
 				99EA7C712B294F9D00B58487 /* PBXTargetDependency */,
 			);
-			name = TrackAsiaLiveTests;
+			name = TrackAsiaSampleTests;
 			productName = TrackAsiaDemoTests;
-			productReference = 99EA7C6F2B294F9D00B58487 /* TrackAsiaLiveTests.xctest */;
+			productReference = 99EA7C6F2B294F9D00B58487 /* TrackAsiaSampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		99EA7C782B294F9D00B58487 /* TrackAsiaLiveUITests */ = {
+		99EA7C782B294F9D00B58487 /* TrackAsiaSampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99EA7C892B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaLiveUITests" */;
+			buildConfigurationList = 99EA7C892B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaSampleUITests" */;
 			buildPhases = (
 				99EA7C752B294F9D00B58487 /* Sources */,
 				99EA7C762B294F9D00B58487 /* Frameworks */,
@@ -419,9 +419,9 @@
 			dependencies = (
 				99EA7C7B2B294F9D00B58487 /* PBXTargetDependency */,
 			);
-			name = TrackAsiaLiveUITests;
+			name = TrackAsiaSampleUITests;
 			productName = TrackAsiaDemoUITests;
-			productReference = 99EA7C792B294F9D00B58487 /* TrackAsiaLiveUITests.xctest */;
+			productReference = 99EA7C792B294F9D00B58487 /* TrackAsiaSampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -447,7 +447,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 99EA7C5A2B294F9B00B58487 /* Build configuration list for PBXProject "TrackAsiaLive" */;
+			buildConfigurationList = 99EA7C5A2B294F9B00B58487 /* Build configuration list for PBXProject "TrackAsiaSample" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -463,9 +463,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99EA7C5E2B294F9B00B58487 /* TrackAsiaLive */,
-				99EA7C6E2B294F9D00B58487 /* TrackAsiaLiveTests */,
-				99EA7C782B294F9D00B58487 /* TrackAsiaLiveUITests */,
+				99EA7C5E2B294F9B00B58487 /* TrackAsiaSample */,
+				99EA7C6E2B294F9D00B58487 /* TrackAsiaSampleTests */,
+				99EA7C782B294F9D00B58487 /* TrackAsiaSampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -513,7 +513,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TrackAsiaLive-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TrackAsiaSample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,19 +526,19 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C7CD28C57B6380981A0E148E /* [CP] Embed Pods Frameworks */ = {
@@ -547,19 +547,19 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaLive/Pods-TrackAsiaLive-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackAsiaSample/Pods-TrackAsiaSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -622,12 +622,12 @@
 /* Begin PBXTargetDependency section */
 		99EA7C712B294F9D00B58487 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 99EA7C5E2B294F9B00B58487 /* TrackAsiaLive */;
+			target = 99EA7C5E2B294F9B00B58487 /* TrackAsiaSample */;
 			targetProxy = 99EA7C702B294F9D00B58487 /* PBXContainerItemProxy */;
 		};
 		99EA7C7B2B294F9D00B58487 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 99EA7C5E2B294F9B00B58487 /* TrackAsiaLive */;
+			target = 99EA7C5E2B294F9B00B58487 /* TrackAsiaSample */;
 			targetProxy = 99EA7C7A2B294F9D00B58487 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -756,13 +756,13 @@
 		};
 		99EA7C842B294F9D00B58487 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaLive.debug.xcconfig */;
+			baseConfigurationReference = 856F96DCE8E1E0DB7C53FB0F /* Pods-TrackAsiaSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackAsia/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KK33PAP58;
 				ENABLE_PREVIEWS = YES;
@@ -782,7 +782,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "vn.track-asia.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -797,13 +797,13 @@
 		};
 		99EA7C852B294F9D00B58487 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B24B301A15C74E9F0E56B87F /* Pods-TrackAsiaLive.release.xcconfig */;
+			baseConfigurationReference = B24B301A15C74E9F0E56B87F /* Pods-TrackAsiaSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackAsia/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KK33PAP58;
 				ENABLE_PREVIEWS = YES;
@@ -829,7 +829,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "vn.track-asia.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -921,7 +921,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		99EA7C5A2B294F9B00B58487 /* Build configuration list for PBXProject "TrackAsiaLive" */ = {
+		99EA7C5A2B294F9B00B58487 /* Build configuration list for PBXProject "TrackAsiaSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99EA7C812B294F9D00B58487 /* Debug */,
@@ -930,7 +930,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99EA7C832B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaLive" */ = {
+		99EA7C832B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99EA7C842B294F9D00B58487 /* Debug */,
@@ -939,7 +939,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99EA7C862B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaLiveTests" */ = {
+		99EA7C862B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaSampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99EA7C872B294F9D00B58487 /* Debug */,
@@ -948,7 +948,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99EA7C892B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaLiveUITests" */ = {
+		99EA7C892B294F9D00B58487 /* Build configuration list for PBXNativeTarget "TrackAsiaSampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99EA7C8A2B294F9D00B58487 /* Debug */,

@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99EA7C5E2B294F9B00B58487"
-               BuildableName = "TrackAsiaLive.app"
-               BlueprintName = "TrackAsiaLive"
-               ReferencedContainer = "container:TrackAsiaLive.xcodeproj">
+               BuildableName = "TrackAsiaSample.app"
+               BlueprintName = "TrackAsiaSample"
+               ReferencedContainer = "container:TrackAsiaSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99EA7C5E2B294F9B00B58487"
-            BuildableName = "TrackAsiaLive.app"
-            BlueprintName = "TrackAsiaLive"
-            ReferencedContainer = "container:TrackAsiaLive.xcodeproj">
+            BuildableName = "TrackAsiaSample.app"
+            BlueprintName = "TrackAsiaSample"
+            ReferencedContainer = "container:TrackAsiaSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99EA7C5E2B294F9B00B58487"
-            BuildableName = "TrackAsiaLive.app"
-            BlueprintName = "TrackAsiaLive"
-            ReferencedContainer = "container:TrackAsiaLive.xcodeproj">
+            BuildableName = "TrackAsiaSample.app"
+            BlueprintName = "TrackAsiaSample"
+            ReferencedContainer = "container:TrackAsiaSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
