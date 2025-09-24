@@ -23,10 +23,14 @@ Thành phần chính (tham khảo repo):
 
 ## 2) Yêu cầu hệ thống
 
-- iOS: 14.0+ (khuyến nghị; demo có thể chạy từ iOS 13 tuỳ cấu hình)
-- Xcode: 14+ (khuyến nghị)
-- Swift: 5.7+
-- Quyền hệ thống: Quyền truy cập vị trí (When In Use/Always nếu chạy navigation nền)
+- **iOS**: 15.0+ (demo project), hỗ trợ iOS 14.0+ cho compatibility
+- **Xcode**: 14.0+ (khuyến nghị cho các tính năng mới nhất)
+- **Swift**: 5.7+ (tương thích với SwiftUI và async/await)
+- **CocoaPods**: 1.16.2+ (để quản lý dependencies)
+- **Quyền hệ thống**: 
+  - Location (When In Use) - bắt buộc cho hiển thị vị trí
+  - Location (Always) - cho navigation nền
+  - Network access - cho tải map tiles và directions API
 
 
 ## 3) Cài đặt và tích hợp SDK
@@ -42,33 +46,69 @@ https://github.com/track-asia/trackasia-gl-native-distribution
 ```
 5. Chọn version: `2.0.3`
 
-#### 1.2. Thêm thư viện Navigation
-1. Thêm trackasia-ios-navigation vào project:
+#### 1.2. Thêm TrackAsia Navigation iOS
+
+**Cách 1: Swift Package Manager (khuyến nghị)**
+1. File → Add Package Dependencies
+2. Nhập URL: `https://github.com/track-asia/trackasia-navigation-ios`
+3. Chọn version phù hợp với project của bạn
+4. Add to target
+
+**Cách 2: Local Integration (như demo)**
+1. Copy thư mục `libs/trackasia-navigation-ios/` vào project
+2. Thêm các module cần thiết vào target
+3. Cấu hình build settings phù hợp
+
+**Hình ảnh hướng dẫn SPM:**
 <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_1a.png" alt="ios"> 
 <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_2a.png" alt="ios"> 
 <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_3.png" alt="ios"> 
 <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_4.png" alt="ios"> 
 
-### 2.2. CocoaPods
+### 2.2. CocoaPods (Demo Project Configuration)
 
-Thêm vào Podfile:
+**Podfile thực tế từ TrackAsiaSample:**
 ```ruby
-platform :ios, '14.0'
-use_frameworks!
+platform :ios, '15.0'
 
-target 'YourApp' do
-  pod 'TrackAsia', '~> 2.0.3'
-  pod 'MapboxDirections'
-  pod 'MapboxCoreNavigation'
-  pod 'MapboxNavigation'
+target 'TrackAsiaSample' do
+  use_frameworks!
+
+  pod 'Alamofire', '~> 5.10.2'
+  pod 'MapboxGeocoder.swift', '~> 0.15'
+end
+
+# Build settings tối ưu cho TrackAsia
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = '$(inherited)'
+            config.build_settings['ARCHS'] = 'arm64 x86_64'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
+            config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+         end
+    end
+  end
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64, x86_64"
+  end
 end
 ```
-Sau đó chạy:
-```
+
+**Lưu ý quan trọng:**
+- **TrackAsia Navigation iOS** được tích hợp qua Swift Package Manager hoặc thư mục `libs/`
+- **Không sử dụng** pod 'TrackAsia' trực tiếp
+- **Dependencies chính**: Alamofire (networking), GoogleMaps (mapping), MapboxGeocoder (search)
+
+**Cài đặt:**
+```bash
+cd demo
 pod repo update
 pod install
 ```
-Mở workspace (.xcworkspace) để build.
+Mở file `.xcworkspace` để build project.
 
 2. Copy thư mục libs:
    - Copy toàn bộ thư mục `libs` vào project của bạn
@@ -93,21 +133,38 @@ Ví dụ nội dung mô tả: “Ứng dụng cần truy cập vị trí để h
 
 ### 2.4) Khóa truy cập và Style URL bản đồ
 
-- Sử dụng style URL từ máy chủ TrackAsia, ví dụ:
-```
-https://maps.track-asia.com/styles/v1/-streets.json?key={{TRACKASIA_MAP_KEY}}
-```
-- Thay {{TRACKASIA_MAP_KEY}} bằng khoá thực tế của bạn (đừng hardcode vào code nguồn công khai).
-- Đảm bảo key có quyền truy cập tiles trên môi trường của bạn.
-
-
-
-### 2. Triển khai MapView
-#### 2.1. Import thư viện
+**Multi-Country Support (từ demo project):**
 ```swift
+// Constants.swift - URLs theo quốc gia
+static let baseurl = "https://maps.track-asia.com/"
+static let baseurlSG = "https://sg-maps.track-asia.com/" 
+static let baseurlTH = "https://th-maps.track-asia.com/"
+
+static let urlStyleVN = "https://maps.track-asia.com/styles/v1/streets.json?key=public"
+static let urlStyleSG = "https://sg-maps.track-asia.com/styles/v1/streets.json?key=public"
+static let urlStyleTH = "https://th-maps.track-asia.com/styles/v1/streets.json?key=public"
+
+// Sử dụng MapUtils để lấy URL động
+let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
+```
+
+**Lưu ý:**
+- Demo sử dụng key "public" cho testing
+- Production: thay bằng API key thực tế của bạn
+- Hỗ trợ 3 quốc gia: VN (mặc định), SG, TH
+- Tự động chuyển đổi style dựa trên quốc gia được chọn
+
+
+
+### 2. Triển khai MapView  
+#### 2.1. Import thư viện (từ TrackAsiaSample)
+```swift
+import TrackAsia
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
+import SwiftUI
+import CoreLocation
 ```
 
 ### 2.2. Khởi tạo và cấu hình MapView với NavigationMapView (ví dụ nhanh)
