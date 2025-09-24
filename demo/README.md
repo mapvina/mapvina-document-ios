@@ -33,22 +33,38 @@ TrackAsia iOS Demo là một ứng dụng mẫu minh họa các tính năng chí
 Thêm các dependencies sau vào file Podfile:
 
 ```ruby
-pod 'TrackAsia'
-pod 'MapboxDirections'
-pod 'MapboxNavigation'
-pod 'MapboxCoreNavigation'
+platform :ios, '15.0'
+
+target 'TrackAsiaSample' do
+  use_frameworks!
+
+  pod 'Alamofire', '~> 5.10.2'
+  pod 'MapboxGeocoder.swift', '~> 0.15'
+end
+```
+
+**Lưu ý:** TrackAsia Navigation iOS được tích hợp qua thư mục `libs/trackasia-navigation-ios` hoặc có thể cài đặt qua Swift Package Manager:
+```
+https://github.com/track-asia/trackasia-navigation-ios
 ```
 
 ### 2. Cấu Hình MapView
 ```swift
 import TrackAsia
+import MapboxCoreNavigation
+import MapboxNavigation
+import MapboxDirections
 
 // Khởi tạo MapViewManager
 let mapViewManager = MapViewManager()
 
-// Cấu hình MapView
-mapViewManager.mapView.styleURL = URL(string: "YOUR_STYLE_URL")
+// Cấu hình MapView với multi-country support
+let selectedCountry = "vn" // hoặc "sg", "th"
+let styleURL = MapUtils.urlStyle(idCountry: selectedCountry, is3D: false)
+mapViewManager.mapView.styleURL = URL(string: styleURL)
 mapViewManager.mapView.delegate = self
+mapViewManager.mapView.showsUserLocation = true
+mapViewManager.mapView.tracksUserCourse = false
 ```
 
 ### 3. Sử Dụng Các Chế Độ
@@ -95,27 +111,49 @@ Directions.shared.calculate(routeOptions) { (waypoints, routes, error) in
 ## Cấu Trúc Project
 
 ```
-TrackAsia/
-├── Views/
-│   ├── Tabs/
-│   │   ├── MapSinglePointView.swift
-│   │   ├── MapWayPointView.swift
-│   │   ├── MapClusterView.swift
-│   │   └── MapAnimationView.swift
-│   └── MapContainer.swift
-├── mapview/
-│   ├── Feature/
-│   │   ├── AnimationLineView.swift
-│   │   ├── ClusterView.swift
-│   │   └── WayPointView.swift
-│   └── MapViewController.swift
-└── MapViewModel.swift
+TrackAsiaSample/
+├── TrackAsia/
+│   ├── Views/
+│   │   ├── Tabs/
+│   │   │   ├── MapSinglePointView.swift
+│   │   │   ├── MapWayPointView.swift
+│   │   │   ├── MapClusterView.swift
+│   │   │   ├── MapAnimationView.swift
+│   │   │   └── MapFeatureView.swift
+│   │   ├── Components/
+│   │   │   ├── BottomBarView.swift
+│   │   │   └── TopBarView.swift
+│   │   ├── ContentView.swift
+│   │   └── MapContainer.swift
+│   ├── mapview/
+│   │   ├── Feature/
+│   │   │   ├── AnimationLineView.swift
+│   │   │   ├── ClusterView.swift
+│   │   │   └── WayPointView.swift
+│   │   └── MapViewController.swift
+│   ├── Utils/
+│   │   ├── MapUtils.swift
+│   │   └── DebugUtils.swift
+│   ├── Models/
+│   ├── ViewModels/
+│   ├── MapViewModel.swift
+│   ├── MapViewManager.swift
+│   ├── Constants.swift
+│   └── TrackAsiaDemoApp.swift
+├── libs/
+│   └── trackasia-navigation-ios/
+├── Podfile
+├── Podfile.lock
+├── TrackAsiaSample.xcodeproj
+└── TrackAsiaSample.xcworkspace
 ```
 
 ## Yêu Cầu Hệ Thống
-- iOS 13.0 trở lên
-- Xcode 12.0 trở lên
-- Swift 5.0 trở lên
+- iOS 15.0 trở lên (khuyến nghị - hỗ trợ iOS 14.0+ cho một số tính năng)
+- Xcode 14.0 trở lên (khuyến nghị)
+- Swift 5.7 trở lên
+- CocoaPods 1.16.2 (để quản lý dependencies)
+- Swift Package Manager (tùy chọn)
 
 ## Giấy Phép
 Dự án này được phân phối theo giấy phép MIT. Xem file LICENSE để biết thêm chi tiết.
@@ -177,9 +215,29 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 
 ### 13. Assets.xcassets/
 - **Tài nguyên giao diện**: Icon, màu sắc, logo, hình ảnh, dễ thay đổi branding/theme.
+- **Biểu tượng tab**: ic_map_single, ic_map_multi, ic_map_cluster, ic_map_animation, ic_feature
+- **Màu sắc chủ đạo**: colorBlue (cho UI chính)
+- **Logo ứng dụng**: app_logo, AppIcon
 
-### 14. mapview/Feature/RouteHandler.swift, MarkerManager.swift, PolylineView.swift, ...
-- **Module mở rộng bản đồ**: Quản lý route, marker, polyline, tách biệt logic, dễ mở rộng/tái sử dụng.
+### 14. Constants.swift và hỗ trợ đa quốc gia
+- **VN**: https://maps.track-asia.com/ (mặc định)
+- **SG**: https://sg-maps.track-asia.com/
+- **TH**: https://th-maps.track-asia.com/
+- **Key**: "public" cho demo, thay thế bằng key thực tế cho production
+- **3D/Satellite**: Hỗ trợ chuyển đổi giữa 2D và 3D/satellite view
+
+### 15. Navigation SDK (libs/trackasia-navigation-ios/)
+- **Nguồn gốc**: Fork của Mapbox Navigation SDK v0.21
+- **Giấy phép**: MIT/ISC (mã nguồn mở)
+- **Tính năng**: Turn-by-turn navigation, simulation mode, voice guidance
+- **Không có**: Telemetry, closed-source components
+- **Cài đặt**: Swift Package Manager hoặc local libs
+
+### 16. mapview/Feature/RouteHandler.swift, MarkerManager.swift, PolylineView.swift, ClusterView.swift
+- **Module mở rộng bản đồ**: Quản lý route, marker, polyline, clustering
+- **ClusterView**: Sử dụng GeoJSON API, tự động gom nhóm điểm, tối ưu hiệu suất
+- **Tách biệt logic**: Dễ mở rộng, tái sử dụng và bảo trì
+- **UIKit bridge**: Kết nối giữa SwiftUI và TrackAsia native components
 
 ## Kiến trúc dự án
 - **MVVM**: Phân tách rõ View, ViewModel, Model giúp code dễ bảo trì, test, mở rộng.
@@ -229,10 +287,25 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 - Thay đổi theme: Sửa Assets.xcassets và các file màu
 
 ## Hướng dẫn build & chạy
-1. Clone repo về máy
-2. Cài đặt pod: `cd demo && pod install`
-3. Mở file `.xcworkspace` bằng Xcode
-4. Build & Run trên simulator hoặc thiết bị thật
+
+### Cách 1: Sử dụng CocoaPods (khuyến nghị)
+1. Clone repo về máy: `git clone <repo-url>`
+2. Di chuyển đến thư mục demo: `cd demo`
+3. Cài đặt dependencies: `pod install`
+4. Mở file `TrackAsiaSample.xcworkspace` bằng Xcode
+5. Chọn target `TrackAsiaSample`
+6. Build & Run trên simulator hoặc thiết bị thật
+
+### Cách 2: Sử dụng Swift Package Manager
+1. Mở `TrackAsiaSample.xcodeproj` trong Xcode
+2. File -> Add Package Dependencies
+3. Thêm URL: `https://github.com/track-asia/trackasia-navigation-ios`
+4. Build & Run
+
+### Lưu ý quan trọng:
+- Đảm bảo Xcode 14+ và iOS 15.0+ deployment target
+- Kiểm tra quyền location trong Info.plist
+- Nếu gặp lỗi build, thử clean DerivedData: `rm -rf ~/Library/Developer/Xcode/DerivedData/*`
 
 ## Đóng góp & liên hệ
 - Đóng góp code qua Pull Request, tuân thủ coding convention trong `Views/README.md`
@@ -285,6 +358,48 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
   - Nút định vị đưa camera về vị trí người dùng.
 - **Mở rộng/tùy biến:**
   - Thay đổi tốc độ, màu sắc, hiệu ứng marker, animation nhiều tuyến đường.
+
+## Dependencies và Cấu hình
+
+### Dependencies chính (Podfile.lock)
+```ruby
+Alamofire (5.10.2)          # Networking  
+MapboxGeocoder.swift (0.15.0) # Geocoding services
+```
+
+### TrackAsia Navigation iOS
+- **Giấy phép**: MIT/ISC (mã nguồn mở hoàn toàn)
+- **Nguồn gốc**: Fork của Mapbox Navigation SDK v0.21
+- **Khác biệt chính**:
+  - Loại bỏ telemetry và các thành phần closed-source
+  - Chuyển từ Mapbox SDK sang TrackAsia Native
+  - Thêm tùy chọn cấu hình cho NavigationMapView
+  - Không cần API key Mapbox
+
+### Cấu hình đa quốc gia
+```swift
+// Constants.swift
+static let baseurl = "https://maps.track-asia.com/"
+static let baseurlSG = "https://sg-maps.track-asia.com/"
+static let baseurlTH = "https://th-maps.track-asia.com/"
+
+// Cách sử dụng
+let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
+let coordinate = MapUtils.getLatlng(idCountry: "vn")
+let zoomLevel = MapUtils.zoom(idCountry: "vn")
+```
+
+### Cấu hình quyền hệ thống (Info.plist)
+```xml
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Ứng dụng cần truy cập vị trí để hiển thị và điều hướng trên bản đồ.</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Ứng dụng cần quyền vị trí để cung cấp dịch vụ điều hướng.</string>
+<key>UIBackgroundModes</key>
+<array>
+    <string>location</string>
+</array>
+```
 
 ## Hướng dẫn tích hợp từng tính năng bản đồ
 
@@ -396,15 +511,93 @@ clusterView.onClusterTapped = { cluster in
 }
 ```
 
+**Clustering Configuration (ClusterView.swift):**
+```swift
+// Sử dụng GeoJSON từ API
+let source = MLNShapeSource(
+    identifier: "clusteredPorts",
+    url: URL(string: "https://panel.hainong.vn/api/v2/diagnostics/pets_map.geojson")!,
+    options: [
+        .clustered: true, 
+        .clusterRadius: 50,
+        .maximumZoomLevelForClustering: 14
+    ]
+)
+
+// Tự động gom nhóm dựa trên zoom level và kẻ cách
+clusterLayer.circleRadius = NSExpression(format: "12 + log(point_count) * 3")
+```
+
 **Tuỳ biến:**
-- Sửa ClusterView.swift để thay đổi logic gom nhóm, custom icon, màu sắc, hiệu ứng.
-- Tích hợp dữ liệu động, sự kiện tap cluster, custom popup.
+- Thay đổi GeoJSON source URL cho dữ liệu riêng
+- Custom cluster icon, màu sắc, kích thước  
+- Điều chỉnh thuật toán gom nhóm (clusterRadius, maxZoom)
+- Tích hợp sự kiện tap cluster, custom popup
+- Xử lý zoom tự động khi tap vào cluster
 
 ---
 
-**Lưu ý:**
-- Có thể nhúng nhiều tính năng cùng lúc bằng cách kết hợp các View trên trong ContentView hoặc TabView.
-- Đọc kỹ phần code ví dụ và callback để tích hợp đúng luồng nghiệp vụ của dự án bạn.
+### 5. Navigation và Turn-by-Turn Directions
+**Tích hợp Navigation SDK:**
+```swift
+// NavigationUIView trong MapWayPointView.swift
+struct NavigationUIView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> NavigationViewController {
+        let navigationVC = NavigationViewController(
+            dayStyle: DayStyle(demoStyle: ()), 
+            nightStyle: NightStyle(demoStyle: ())
+        )
+        return navigationVC
+    }
+}
+
+// Bắt đầu navigation với simulation
+let simulatedLocationManager = SimulatedLocationManager(route: route)
+simulatedLocationManager.speedMultiplier = 2.0
+navigationVC.startNavigation(with: route, animated: true, locationManager: simulatedLocationManager)
+```
+
+**Tính toán tuyến đường:**
+```swift
+// Sử dụng Mapbox Directions API
+let origin = Waypoint(coordinate: startPoint)
+let destination = Waypoint(coordinate: endPoint)
+let routeOptions = NavigationRouteOptions(waypoints: [origin, destination])
+
+Directions.shared.calculate(routeOptions) { (waypoints, routes, error) in
+    if let route = routes?.first {
+        self.handleSuccessfulRouteCalculation(route)
+    } else {
+        // Fallback với straight line
+        self.drawStraightLine(from: startPoint, to: endPoint)
+    }
+}
+```
+
+### 6. Multi-Country Support và Dynamic Styling
+**Chuyển đổi quốc gia động:**
+```swift
+// ContentView.swift - hỗ trợ 3 quốc gia
+let countries: [String: String] = [
+    "vn": "Việt Nam",
+    "sg": "Singapore", 
+    "th": "Thailand"
+]
+
+// Tự động cập nhật style và camera
+func handleCountryChange(_ country: String) {
+    let styleURL = MapUtils.urlStyle(idCountry: country, is3D: false)
+    let coordinate = MapUtils.getLatlng(idCountry: country).toCLLocationCoordinate2D()
+    mapViewModel.updateMap(selectedCountry: country)
+}
+```
+
+**Lưu ý quan trọng:**
+- Tất cả các View đều kết nối qua MapViewModel (MVVM pattern)
+- MapContainer.swift là bridge giữa SwiftUI và UIKit components
+- Có thể kết hợp nhiều tính năng trong một View
+- Đọc kỹ callback patterns và state management để tích hợp đúng
+- Kiểm tra quyền location và network permissions
 
 ---
 
@@ -576,13 +769,32 @@ print("Point count: \(clusterView.pointCount)")
 
 ## Tối Ưu Hiệu Năng
 
-### 1. Tối ưu bộ nhớ
+### 1. Tối ưu bộ nhớ và hiệu suất
 ```swift
-// Giải phóng tài nguyên khi không cần thiết
-func cleanup() {
+// Giải phóng tài nguyên khi chuyển mode
+func prepareForModeChange() {
+    clearAllAnnotations()
+    stopAnimating()
     mapViewManager.removeAllPolylines()
-    mapViewManager.mapView.removeAnnotations(mapViewManager.mapView.annotations ?? [])
-    mapViewManager.mapView.style = nil
+    
+    // Xóa cluster resources
+    if let clusterView = self.clusterView {
+        clusterView.cleanup()
+    }
+}
+
+// Tối ưu URLSession cho network requests
+private func configureURLSessionTimeouts() {
+    URLSessionConfiguration.default.timeoutIntervalForResource = 60.0
+    URLSessionConfiguration.default.timeoutIntervalForRequest = 60.0
+}
+
+// Cleanup resources trong ClusterView
+public func cleanup() {
+    cleanupExistingLayers()
+    mapView.delegate = previousDelegate
+    self.mapView = nil
+    self.previousDelegate = nil
 }
 ```
 
