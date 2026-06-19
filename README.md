@@ -1,24 +1,24 @@
-# TrackAsia Map iOS SDK V2 — README tổng hợp 
+# MapVina Map iOS SDK V2 — README tổng hợp 
 
 - Hướng dẫn tích hợp vào dự án iOS (SPM, CocoaPods, hoặc libs nội bộ)
 - Bổ sung các phần còn thiếu thường gặp khi triển khai thực tế
 - Liệt kê lỗi thường gặp và cách khắc phục
 
 
-## 1) Tổng quan TrackAsia Map SDK
+## 1) Tổng quan MapVina Map SDK
 
-TrackAsia Map cung cấp bộ SDK bản đồ cho iOS, bao gồm:
+MapVina Map cung cấp bộ SDK bản đồ cho iOS, bao gồm:
 - Engine kết xuất bản đồ vector, quản lý tiles, render mượt với hiệu năng cao
 - API định tuyến, điều hướng turn-by-turn (Navigation)
 - Annotation, polyline, polygon, clustering, animation, 3D buildings, heatmap
 - Khả năng tuỳ biến theme/style, biểu tượng, branding
 
 Thành phần chính (tham khảo repo):
-- TrackAsia Native: Core engine và render tiles
-- TrackAsia Navigation iOS: UI và logic điều hướng turn-by-turn
-- TrackAsia Directions (Swift): API tính toán tuyến đường
-- TrackAsia Polyline: Encode/decode/vẽ polyline
-- TrackAsia Annotation Extension: Annotation, marker, overlay nâng cao
+- MapVina Native: Core engine và render tiles
+- MapVina Navigation iOS: UI và logic điều hướng turn-by-turn
+- MapVina Directions (Swift): API tính toán tuyến đường
+- MapVina Polyline: Encode/decode/vẽ polyline
+- MapVina Annotation Extension: Annotation, marker, overlay nâng cao
 
 
 ## 2) Yêu cầu hệ thống
@@ -42,43 +42,43 @@ Thành phần chính (tham khảo repo):
 3. Click "+" để thêm package mới
 4. Nhập URL repository:
 ```
-https://github.com/track-asia/trackasia-gl-native-distribution
+https://github.com/map-vina/mapvina-gl-native-distribution
 ```
 5. Chọn version: `2.0.3`
 
-#### 1.2. Thêm TrackAsia Navigation iOS
+#### 1.2. Thêm MapVina Navigation iOS
 
 **Cách 1: Swift Package Manager (khuyến nghị)**
 1. File → Add Package Dependencies
-2. Nhập URL: `https://github.com/track-asia/trackasia-navigation-ios`
+2. Nhập URL: `https://github.com/map-vina/mapvina-navigation-ios`
 3. Chọn version phù hợp với project của bạn
 4. Add to target
 
 **Cách 2: Local Integration (như demo)**
-1. Copy thư mục `libs/trackasia-navigation-ios/` vào project
+1. Copy thư mục `libs/mapvina-navigation-ios/` vào project
 2. Thêm các module cần thiết vào target
 3. Cấu hình build settings phù hợp
 
 **Hình ảnh hướng dẫn SPM:**
-<img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_1a.png" alt="ios"> 
-<img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_2a.png" alt="ios"> 
-<img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_3.png" alt="ios"> 
-<img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_add_4.png" alt="ios"> 
+<img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_add_1a.png" alt="ios"> 
+<img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_add_2a.png" alt="ios"> 
+<img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_add_3.png" alt="ios"> 
+<img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_add_4.png" alt="ios"> 
 
 ### 2.2. CocoaPods (Demo Project Configuration)
 
-**Podfile thực tế từ TrackAsiaSample:**
+**Podfile thực tế từ MapVinaSample:**
 ```ruby
 platform :ios, '15.0'
 
-target 'TrackAsiaSample' do
+target 'MapVinaSample' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.10.2'
   pod 'MapboxGeocoder.swift', '~> 0.15'
 end
 
-# Build settings tối ưu cho TrackAsia
+# Build settings tối ưu cho MapVina
 post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
@@ -98,8 +98,8 @@ end
 ```
 
 **Lưu ý quan trọng:**
-- **TrackAsia Navigation iOS** được tích hợp qua Swift Package Manager hoặc thư mục `libs/`
-- **Không sử dụng** pod 'TrackAsia' trực tiếp
+- **MapVina Navigation iOS** được tích hợp qua Swift Package Manager hoặc thư mục `libs/`
+- **Không sử dụng** pod 'MapVina' trực tiếp
 - **Dependencies chính**: Alamofire (networking), GoogleMaps (mapping), MapboxGeocoder (search)
 
 **Cài đặt:**
@@ -136,13 +136,13 @@ Ví dụ nội dung mô tả: “Ứng dụng cần truy cập vị trí để h
 **Multi-Country Support (từ demo project):**
 ```swift
 // Constants.swift - URLs theo quốc gia
-static let baseurl = "https://maps.track-asia.com/"
-static let baseurlSG = "https://sg-maps.track-asia.com/" 
-static let baseurlTH = "https://th-maps.track-asia.com/"
+static let baseurl = "https://maps.map-vina.com/"
+static let baseurlSG = "https://sg-maps.map-vina.com/" 
+static let baseurlTH = "https://th-maps.map-vina.com/"
 
-static let urlStyleVN = "https://maps.track-asia.com/styles/v1/streets.json?key=public"
-static let urlStyleSG = "https://sg-maps.track-asia.com/styles/v1/streets.json?key=public"
-static let urlStyleTH = "https://th-maps.track-asia.com/styles/v1/streets.json?key=public"
+static let urlStyleVN = "https://maps.map-vina.com/styles/v1/streets.json?key=public"
+static let urlStyleSG = "https://sg-maps.map-vina.com/styles/v1/streets.json?key=public"
+static let urlStyleTH = "https://th-maps.map-vina.com/styles/v1/streets.json?key=public"
 
 // Sử dụng MapUtils để lấy URL động
 let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
@@ -157,9 +157,9 @@ let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
 
 
 ### 2. Triển khai MapView  
-#### 2.1. Import thư viện (từ TrackAsiaSample)
+#### 2.1. Import thư viện (từ MapVinaSample)
 ```swift
-import TrackAsia
+import MapVina
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
@@ -188,7 +188,7 @@ class MapViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let styleURL = URL(string: "https://maps.track-asia.com/styles/v1/-streets.json?key={{TRACKASIA_MAP_KEY}}")
+        let styleURL = URL(string: "https://maps.map-vina.com/styles/v1/-streets.json?key={{MAPVINA_MAP_KEY}}")
         let mv = NavigationMapView(frame: view.bounds, styleURL: styleURL)
         mapView = mv
         view.insertSubview(mv, at: 0)
@@ -205,13 +205,13 @@ class MapViewController: UIViewController {
 - Feature: Các tính năng bản đồ nâng cao
 
 <p align="center">
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_1.png" alt="IOS" width="18%">   
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_2.png" alt="IOS" width="18%">
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_3.png" alt="IOS" width="18%">
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_4.png" alt="IOS" width="18%">
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_5.png" alt="IOS" width="18%">
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_6.png" alt="IOS" width="18%">
-  <img src="https://git.advn.vn/sangnguyen/trackasia-document/-/raw/master/images/ios_7.png" alt="IOS" width="18%">
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_1.png" alt="IOS" width="18%">   
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_2.png" alt="IOS" width="18%">
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_3.png" alt="IOS" width="18%">
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_4.png" alt="IOS" width="18%">
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_5.png" alt="IOS" width="18%">
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_6.png" alt="IOS" width="18%">
+  <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_7.png" alt="IOS" width="18%">
 </p>
 
 ### 4. Thư viện Core và Tài nguyên
@@ -226,35 +226,35 @@ class MapViewController: UIViewController {
 
 ## 6. Tham khảo thư viện (repos)
 
-- TrackAsia Navigation iOS: UI điều hướng, turn-by-turn, tích hợp sẵn giao diện
-- TrackAsia Native: Engine bản đồ, render tiles
-- TrackAsia Directions (Swift): API chỉ đường, nhiều cấu hình phương tiện
-- TrackAsia Polyline: Encode/decode/vẽ polyline
-- TrackAsia Annotation Extension: Công cụ annotation, tuỳ chỉnh marker/overlay
+- MapVina Navigation iOS: UI điều hướng, turn-by-turn, tích hợp sẵn giao diện
+- MapVina Native: Engine bản đồ, render tiles
+- MapVina Directions (Swift): API chỉ đường, nhiều cấu hình phương tiện
+- MapVina Polyline: Encode/decode/vẽ polyline
+- MapVina Annotation Extension: Công cụ annotation, tuỳ chỉnh marker/overlay
 
 
 #### Core Libraries
-- [TrackAsia Navigation iOS](https://github.com/track-asia/trackasia-navigation-ios)
+- [MapVina Navigation iOS](https://github.com/map-vina/mapvina-navigation-ios)
   - Thư viện điều hướng và chỉ đường
   - Hỗ trợ turn-by-turn navigation
   - Tích hợp giao diện điều hướng
 
-- [TrackAsia Native](https://github.com/track-asia/trackasia-native)
+- [MapVina Native](https://github.com/map-vina/mapvina-native)
   - Core engine của bản đồ
   - Xử lý render map tiles
   - Quản lý vector tiles
 
-- [TrackAsia Directions](https://github.com/track-asia/trackasia-directions-swift)
+- [MapVina Directions](https://github.com/map-vina/mapvina-directions-swift)
   - API chỉ đường
   - Tìm đường tối ưu
   - Hỗ trợ nhiều phương tiện di chuyển
 
-- [TrackAsia Polyline](https://github.com/track-asia/trackasia-polyline)
+- [MapVina Polyline](https://github.com/map-vina/mapvina-polyline)
   - Vẽ và quản lý polyline
   - Encode/decode tọa độ
   - Tối ưu hiển thị đường đi
 
-- [TrackAsia Extension](https://github.com/track-asia/trackasia-annotation-extension)
+- [MapVina Extension](https://github.com/map-vina/mapvina-annotation-extension)
   - Các extension mở rộng
   - Công cụ annotation
   - Tùy chỉnh marker và overlay

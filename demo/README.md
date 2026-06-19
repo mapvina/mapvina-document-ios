@@ -1,6 +1,6 @@
-# TrackAsia iOS Demo
+# MapVina iOS Demo
 
-TrackAsia iOS Demo là một ứng dụng mẫu minh họa các tính năng chính của thư viện TrackAsia cho iOS. Ứng dụng bao gồm nhiều chế độ xem bản đồ khác nhau, mỗi chế độ tập trung vào một tính năng cụ thể.
+MapVina iOS Demo là một ứng dụng mẫu minh họa các tính năng chính của thư viện MapVina cho iOS. Ứng dụng bao gồm nhiều chế độ xem bản đồ khác nhau, mỗi chế độ tập trung vào một tính năng cụ thể.
 
 ## Các Tính Năng Chính
 
@@ -35,7 +35,7 @@ Thêm các dependencies sau vào file Podfile:
 ```ruby
 platform :ios, '15.0'
 
-target 'TrackAsiaSample' do
+target 'MapVinaSample' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.10.2'
@@ -43,14 +43,14 @@ target 'TrackAsiaSample' do
 end
 ```
 
-**Lưu ý:** TrackAsia Navigation iOS được tích hợp qua thư mục `libs/trackasia-navigation-ios` hoặc có thể cài đặt qua Swift Package Manager:
+**Lưu ý:** MapVina Navigation iOS được tích hợp qua thư mục `libs/mapvina-navigation-ios` hoặc có thể cài đặt qua Swift Package Manager:
 ```
-https://github.com/track-asia/trackasia-navigation-ios
+https://github.com/map-vina/mapvina-navigation-ios
 ```
 
 ### 2. Cấu Hình MapView
 ```swift
-import TrackAsia
+import MapVina
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
@@ -111,8 +111,8 @@ Directions.shared.calculate(routeOptions) { (waypoints, routes, error) in
 ## Cấu Trúc Project
 
 ```
-TrackAsiaSample/
-├── TrackAsia/
+MapVinaSample/
+├── MapVina/
 │   ├── Views/
 │   │   ├── Tabs/
 │   │   │   ├── MapSinglePointView.swift
@@ -139,13 +139,13 @@ TrackAsiaSample/
 │   ├── MapViewModel.swift
 │   ├── MapViewManager.swift
 │   ├── Constants.swift
-│   └── TrackAsiaDemoApp.swift
+│   └── MapVinaDemoApp.swift
 ├── libs/
-│   └── trackasia-navigation-ios/
+│   └── mapvina-navigation-ios/
 ├── Podfile
 ├── Podfile.lock
-├── TrackAsiaSample.xcodeproj
-└── TrackAsiaSample.xcworkspace
+├── MapVinaSample.xcodeproj
+└── MapVinaSample.xcworkspace
 ```
 
 ## Yêu Cầu Hệ Thống
@@ -159,7 +159,7 @@ TrackAsiaSample/
 Dự án này được phân phối theo giấy phép MIT. Xem file LICENSE để biết thêm chi tiết.
 
 ## Giới thiệu
-TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, trình diễn các tính năng bản đồ hiện đại, định tuyến, clustering, tìm kiếm, và nhiều tiện ích khác. Dự án được thiết kế theo kiến trúc MVVM, dễ bảo trì, mở rộng và tích hợp vào các dự án khác.
+MapVina là ứng dụng iOS demo sử dụng SwiftUI và MapVina Map SDK, trình diễn các tính năng bản đồ hiện đại, định tuyến, clustering, tìm kiếm, và nhiều tiện ích khác. Dự án được thiết kế theo kiến trúc MVVM, dễ bảo trì, mở rộng và tích hợp vào các dự án khác.
 
 ## Tính năng chính
 - **Single Point**: Thêm, di chuyển, và quản lý marker đơn lẻ trên bản đồ.
@@ -205,7 +205,7 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 - **ViewModel trung tâm**: Quản lý state, logic nghiệp vụ, mode, tích hợp tìm kiếm, geocoding, navigation, loading, toast, country.
 
 ### 10. MapContainer.swift
-- **Bridge SwiftUI <-> UIViewController**: Nhúng bản đồ TrackAsia vào SwiftUI, quản lý lifecycle, kết nối gesture/sự kiện bản đồ với ViewModel.
+- **Bridge SwiftUI <-> UIViewController**: Nhúng bản đồ MapVina vào SwiftUI, quản lý lifecycle, kết nối gesture/sự kiện bản đồ với ViewModel.
 
 ### 11. Utils/MapUtils.swift
 - **Tiện ích bản đồ**: Chuyển đổi toạ độ, style, zoom, padding, lấy style URL theo quốc gia.
@@ -220,13 +220,13 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 - **Logo ứng dụng**: app_logo, AppIcon
 
 ### 14. Constants.swift và hỗ trợ đa quốc gia
-- **VN**: https://maps.track-asia.com/ (mặc định)
-- **SG**: https://sg-maps.track-asia.com/
-- **TH**: https://th-maps.track-asia.com/
+- **VN**: https://maps.map-vina.com/ (mặc định)
+- **SG**: https://sg-maps.map-vina.com/
+- **TH**: https://th-maps.map-vina.com/
 - **Key**: "public" cho demo, thay thế bằng key thực tế cho production
 - **3D/Satellite**: Hỗ trợ chuyển đổi giữa 2D và 3D/satellite view
 
-### 15. Navigation SDK (libs/trackasia-navigation-ios/)
+### 15. Navigation SDK (libs/mapvina-navigation-ios/)
 - **Nguồn gốc**: Fork của Mapbox Navigation SDK v0.21
 - **Giấy phép**: MIT/ISC (mã nguồn mở)
 - **Tính năng**: Turn-by-turn navigation, simulation mode, voice guidance
@@ -237,7 +237,7 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 - **Module mở rộng bản đồ**: Quản lý route, marker, polyline, clustering
 - **ClusterView**: Sử dụng GeoJSON API, tự động gom nhóm điểm, tối ưu hiệu suất
 - **Tách biệt logic**: Dễ mở rộng, tái sử dụng và bảo trì
-- **UIKit bridge**: Kết nối giữa SwiftUI và TrackAsia native components
+- **UIKit bridge**: Kết nối giữa SwiftUI và MapVina native components
 
 ## Kiến trúc dự án
 - **MVVM**: Phân tách rõ View, ViewModel, Model giúp code dễ bảo trì, test, mở rộng.
@@ -255,9 +255,9 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 - CocoaPods (hoặc Swift Package Manager)
 
 ### Cài đặt
-1. **Thêm TrackAsia SDK và các dependency vào Podfile:**
+1. **Thêm MapVina SDK và các dependency vào Podfile:**
    ```ruby
-   pod 'TrackAsia', '~> 1.0'
+   pod 'MapVina', '~> 1.0'
    pod 'MapboxDirections.swift'
    pod 'MapboxCoreNavigation'
    pod 'MapboxNavigation'
@@ -265,11 +265,11 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
    Chạy `pod install`
 
 2. **Copy các module cần thiết:**
-   - `TrackAsia/Views/` (hoặc chỉ các Tabs/Components bạn muốn)
-   - `TrackAsia/MapViewModel.swift`, `TrackAsia/MapViewManager.swift`
-   - `TrackAsia/mapview/Feature/ClusterView.swift` nếu dùng cluster
-   - `TrackAsia/Models/`, `TrackAsia/ViewModels/`, `TrackAsia/Utils/`
-   - `TrackAsia/Assets.xcassets` (icon, màu, logo...)
+   - `MapVina/Views/` (hoặc chỉ các Tabs/Components bạn muốn)
+   - `MapVina/MapViewModel.swift`, `MapVina/MapViewManager.swift`
+   - `MapVina/mapview/Feature/ClusterView.swift` nếu dùng cluster
+   - `MapVina/Models/`, `MapVina/ViewModels/`, `MapVina/Utils/`
+   - `MapVina/Assets.xcassets` (icon, màu, logo...)
 
 3. **Tùy biến giao diện:**
    - Thay logo, màu sắc trong Assets.xcassets
@@ -292,14 +292,14 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 1. Clone repo về máy: `git clone <repo-url>`
 2. Di chuyển đến thư mục demo: `cd demo`
 3. Cài đặt dependencies: `pod install`
-4. Mở file `TrackAsiaSample.xcworkspace` bằng Xcode
-5. Chọn target `TrackAsiaSample`
+4. Mở file `MapVinaSample.xcworkspace` bằng Xcode
+5. Chọn target `MapVinaSample`
 6. Build & Run trên simulator hoặc thiết bị thật
 
 ### Cách 2: Sử dụng Swift Package Manager
-1. Mở `TrackAsiaSample.xcodeproj` trong Xcode
+1. Mở `MapVinaSample.xcodeproj` trong Xcode
 2. File -> Add Package Dependencies
-3. Thêm URL: `https://github.com/track-asia/trackasia-navigation-ios`
+3. Thêm URL: `https://github.com/map-vina/mapvina-navigation-ios`
 4. Build & Run
 
 ### Lưu ý quan trọng:
@@ -310,7 +310,7 @@ TrackAsia là ứng dụng iOS demo sử dụng SwiftUI và TrackAsia Map SDK, t
 ## Đóng góp & liên hệ
 - Đóng góp code qua Pull Request, tuân thủ coding convention trong `Views/README.md`
 - Báo lỗi hoặc đề xuất tính năng mới qua Issues
-- Liên hệ: [your-email@example.com] hoặc [https://github.com/trackasia/trackasia-demo-ios]
+- Liên hệ: [your-email@example.com] hoặc [https://github.com/mapvina/mapvina-demo-ios]
 
 ## Hướng dẫn sử dụng từng màn hình chính
 
@@ -367,21 +367,21 @@ Alamofire (5.10.2)          # Networking
 MapboxGeocoder.swift (0.15.0) # Geocoding services
 ```
 
-### TrackAsia Navigation iOS
+### MapVina Navigation iOS
 - **Giấy phép**: MIT/ISC (mã nguồn mở hoàn toàn)
 - **Nguồn gốc**: Fork của Mapbox Navigation SDK v0.21
 - **Khác biệt chính**:
   - Loại bỏ telemetry và các thành phần closed-source
-  - Chuyển từ Mapbox SDK sang TrackAsia Native
+  - Chuyển từ Mapbox SDK sang MapVina Native
   - Thêm tùy chọn cấu hình cho NavigationMapView
   - Không cần API key Mapbox
 
 ### Cấu hình đa quốc gia
 ```swift
 // Constants.swift
-static let baseurl = "https://maps.track-asia.com/"
-static let baseurlSG = "https://sg-maps.track-asia.com/"
-static let baseurlTH = "https://th-maps.track-asia.com/"
+static let baseurl = "https://maps.map-vina.com/"
+static let baseurlSG = "https://sg-maps.map-vina.com/"
+static let baseurlTH = "https://th-maps.map-vina.com/"
 
 // Cách sử dụng
 let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
@@ -601,7 +601,7 @@ func handleCountryChange(_ country: String) {
 
 ---
 
-**TrackAsia - Digital Map Platform for Asia**
+**MapVina - Digital Map Platform for Asia**
 
 ## Chi Tiết Kỹ Thuật
 

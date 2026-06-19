@@ -1,0 +1,6 @@
+framework module Pods_MapVinaSample {
+  umbrella header "Pods-MapVinaSample-umbrella.h"
+
+  export *
+  module * { export * }
+}
