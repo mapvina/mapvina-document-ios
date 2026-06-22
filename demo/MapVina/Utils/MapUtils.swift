@@ -55,16 +55,16 @@ class MapUtils {
         print("🌐 urlDomain called with idCountry: \(idCountry)")
         switch idCountry.lowercased() {
         case "vn":
-            return "https://maps.map-vina.com"
+            return "https://maps.mapvina.com"
         case "sg": 
-            return "https://sg-maps.map-vina.com"
+            return "https://sg-maps.mapvina.com"
         case "th": 
-            return "https://th-maps.map-vina.com"
+            return "https://th-maps.mapvina.com"
         case "vietnam":
             print("✅ Using Vietnam API")
-            return "https://maps.map-vina.com"
+            return "https://maps.mapvina.com"
         default:
-            return "https://maps.map-vina.com"
+            return "https://maps.mapvina.com"
         }
     }
     

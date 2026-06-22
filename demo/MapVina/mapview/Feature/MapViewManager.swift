@@ -27,7 +27,7 @@ class MapViewManager: ObservableObject {
 
     init() {
         // Tạo MapView với style mặc định
-        let styleURL = URL(string: "https://maps.map-vina.com/styles/v1/streets.json?key=public_key")!
+        let styleURL = URL(string: "https://maps.mapvina.com/styles/v1/streets.json?key=public_key")!
         mapView = MLNMapView(frame: .zero, styleURL: styleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         

@@ -954,9 +954,9 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "mapvina-navigation-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/map-vina/mapvina-navigation-ios";
+			repositoryURL = "file:///Volumes/DATA/MapVina/mapvina-migration-workspace/upstream-maplibre/mapvina-document-ios-github/demo/libs/mapvina-navigation-ios";
 			requirement = {
-				branch = 2.0.3;
+				branch = fix;
 				kind = branch;
 			};
 		};
