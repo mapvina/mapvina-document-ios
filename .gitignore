@@ -1,0 +1,12 @@
+# Xcode / build artifacts
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.pbxproj.backup
+
+# CocoaPods
+Pods/
+
+# macOS
+.DS_Store

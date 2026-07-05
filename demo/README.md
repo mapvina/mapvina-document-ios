@@ -45,7 +45,7 @@ end
 
 **Lưu ý:** MapVina Navigation iOS được tích hợp qua thư mục `libs/mapvina-navigation-ios` hoặc có thể cài đặt qua Swift Package Manager:
 ```
-https://github.com/map-vina/mapvina-navigation-ios
+https://github.com/mapvina/mapvina-navigation-ios
 ```
 
 ### 2. Cấu Hình MapView
@@ -220,9 +220,9 @@ MapVina là ứng dụng iOS demo sử dụng SwiftUI và MapVina Map SDK, trìn
 - **Logo ứng dụng**: app_logo, AppIcon
 
 ### 14. Constants.swift và hỗ trợ đa quốc gia
-- **VN**: https://maps.map-vina.com/ (mặc định)
-- **SG**: https://sg-maps.map-vina.com/
-- **TH**: https://th-maps.map-vina.com/
+- **VN**: https://maps.mapvina.com/ (mặc định)
+- **SG**: https://sg-maps.mapvina.com/
+- **TH**: https://th-maps.mapvina.com/
 - **Key**: "public" cho demo, thay thế bằng key thực tế cho production
 - **3D/Satellite**: Hỗ trợ chuyển đổi giữa 2D và 3D/satellite view
 
@@ -299,7 +299,7 @@ MapVina là ứng dụng iOS demo sử dụng SwiftUI và MapVina Map SDK, trìn
 ### Cách 2: Sử dụng Swift Package Manager
 1. Mở `MapVinaSample.xcodeproj` trong Xcode
 2. File -> Add Package Dependencies
-3. Thêm URL: `https://github.com/map-vina/mapvina-navigation-ios`
+3. Thêm URL: `https://github.com/mapvina/mapvina-navigation-ios`
 4. Build & Run
 
 ### Lưu ý quan trọng:
@@ -379,9 +379,9 @@ MapboxGeocoder.swift (0.15.0) # Geocoding services
 ### Cấu hình đa quốc gia
 ```swift
 // Constants.swift
-static let baseurl = "https://maps.map-vina.com/"
-static let baseurlSG = "https://sg-maps.map-vina.com/"
-static let baseurlTH = "https://th-maps.map-vina.com/"
+static let baseurl = "https://maps.mapvina.com/"
+static let baseurlSG = "https://sg-maps.mapvina.com/"
+static let baseurlTH = "https://th-maps.mapvina.com/"
 
 // Cách sử dụng
 let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)

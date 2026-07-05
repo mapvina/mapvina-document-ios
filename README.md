@@ -42,7 +42,7 @@ Thành phần chính (tham khảo repo):
 3. Click "+" để thêm package mới
 4. Nhập URL repository:
 ```
-https://github.com/map-vina/mapvina-gl-native-distribution
+https://github.com/mapvina/mapvina-gl-native-distribution
 ```
 5. Chọn version: `2.0.3`
 
@@ -50,7 +50,7 @@ https://github.com/map-vina/mapvina-gl-native-distribution
 
 **Cách 1: Swift Package Manager (khuyến nghị)**
 1. File → Add Package Dependencies
-2. Nhập URL: `https://github.com/map-vina/mapvina-navigation-ios`
+2. Nhập URL: `https://github.com/mapvina/mapvina-navigation-ios`
 3. Chọn version phù hợp với project của bạn
 4. Add to target
 
@@ -136,13 +136,13 @@ Ví dụ nội dung mô tả: “Ứng dụng cần truy cập vị trí để h
 **Multi-Country Support (từ demo project):**
 ```swift
 // Constants.swift - URLs theo quốc gia
-static let baseurl = "https://maps.map-vina.com/"
-static let baseurlSG = "https://sg-maps.map-vina.com/" 
-static let baseurlTH = "https://th-maps.map-vina.com/"
+static let baseurl = "https://maps.mapvina.com/"
+static let baseurlSG = "https://sg-maps.mapvina.com/" 
+static let baseurlTH = "https://th-maps.mapvina.com/"
 
-static let urlStyleVN = "https://maps.map-vina.com/styles/v1/streets.json?key=public"
-static let urlStyleSG = "https://sg-maps.map-vina.com/styles/v1/streets.json?key=public"
-static let urlStyleTH = "https://th-maps.map-vina.com/styles/v1/streets.json?key=public"
+static let urlStyleVN = "https://maps.mapvina.com/styles/v1/streets.json?key=public"
+static let urlStyleSG = "https://sg-maps.mapvina.com/styles/v1/streets.json?key=public"
+static let urlStyleTH = "https://th-maps.mapvina.com/styles/v1/streets.json?key=public"
 
 // Sử dụng MapUtils để lấy URL động
 let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
@@ -188,7 +188,7 @@ class MapViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let styleURL = URL(string: "https://maps.map-vina.com/styles/v1/-streets.json?key={{MAPVINA_MAP_KEY}}")
+        let styleURL = URL(string: "https://maps.mapvina.com/styles/v1/-streets.json?key={{MAPVINA_MAP_KEY}}")
         let mv = NavigationMapView(frame: view.bounds, styleURL: styleURL)
         mapView = mv
         view.insertSubview(mv, at: 0)
@@ -234,27 +234,27 @@ class MapViewController: UIViewController {
 
 
 #### Core Libraries
-- [MapVina Navigation iOS](https://github.com/map-vina/mapvina-navigation-ios)
+- [MapVina Navigation iOS](https://github.com/mapvina/mapvina-navigation-ios)
   - Thư viện điều hướng và chỉ đường
   - Hỗ trợ turn-by-turn navigation
   - Tích hợp giao diện điều hướng
 
-- [MapVina Native](https://github.com/map-vina/mapvina-native)
+- [MapVina Native](https://github.com/mapvina/mapvina-native)
   - Core engine của bản đồ
   - Xử lý render map tiles
   - Quản lý vector tiles
 
-- [MapVina Directions](https://github.com/map-vina/mapvina-directions-swift)
+- [MapVina Directions](https://github.com/mapvina/mapvina-directions-swift)
   - API chỉ đường
   - Tìm đường tối ưu
   - Hỗ trợ nhiều phương tiện di chuyển
 
-- [MapVina Polyline](https://github.com/map-vina/mapvina-polyline)
+- [MapVina Polyline](https://github.com/mapvina/mapvina-polyline)
   - Vẽ và quản lý polyline
   - Encode/decode tọa độ
   - Tối ưu hiển thị đường đi
 
-- [MapVina Extension](https://github.com/map-vina/mapvina-annotation-extension)
+- [MapVina Extension](https://github.com/mapvina/mapvina-annotation-extension)
   - Các extension mở rộng
   - Công cụ annotation
   - Tùy chỉnh marker và overlay

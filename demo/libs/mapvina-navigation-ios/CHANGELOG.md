@@ -16,12 +16,12 @@
     ```
 * Custom location snapping in the `RouteController` via the delegate
 * Fix: If the directions API endpoint doesn't include audio instructions, `didArrive:` would never be called.
-  * Merged in <https://github.com/map-vina/mapvina-navigation-ios/pull/72>
+  * Merged in <https://github.com/mapvina/mapvina-navigation-ios/pull/72>
 * Updated "turf" geometry library from 0.2.2 to 2.8.0
-    * Merged in https://github.com/map-vina/mapvina-navigation-ios/pull/91
-* Only require background audio when using speech synthesis in https://github.com/map-vina/mapvina-navigation-ios/pull/64
-* Fix: Respond to changes in dynamic type without having to restart the app in https://github.com/map-vina/mapvina-navigation-ios/pull/65
-* Fix: crash in EndOfRouteViewController and restore its presentation by in https://github.com/map-vina/mapvina-navigation-ios/pull/71
+    * Merged in https://github.com/mapvina/mapvina-navigation-ios/pull/91
+* Only require background audio when using speech synthesis in https://github.com/mapvina/mapvina-navigation-ios/pull/64
+* Fix: Respond to changes in dynamic type without having to restart the app in https://github.com/mapvina/mapvina-navigation-ios/pull/65
+* Fix: crash in EndOfRouteViewController and restore its presentation by in https://github.com/mapvina/mapvina-navigation-ios/pull/71
 * Fix: retain cycles in RouteMapViewController
 * Fix: hide lanesView on navigation start
 
@@ -34,23 +34,23 @@
 * Allow to customize rerouting logic by implementing RouteControllerDelegate#routeControllerGetDirections 
 * Add option to overwrite camera update via NavigationMapViewCourseTrackingDelegate#updateCamera
 * Remove MapboxVoiceController and Mapbox Speech dependency. If you would like to use MapboxSpeech, you can copy the deleted MapboxVoiceController into your project.
-* Updated MapVina Native dependency to ios-v6.0.0 (https://github.com/map-vina/mapvina-native/releases/tag/ios-v6.0.0). Implementers need to change the prefix MLN to MLN for all MapVina Native classes that are referenced.
+* Updated MapVina Native dependency to ios-v6.0.0 (https://github.com/mapvina/mapvina-native/releases/tag/ios-v6.0.0). Implementers need to change the prefix MLN to MLN for all MapVina Native classes that are referenced.
 * Only snap location to route if the location is within the `RouteControllerUserLocationSnappingDistance`
 * Add support for Swift Package Manager while dropping Carthage and Cocoapods.
 * Initialization no longer tries to add mapbox://mapbox.mapbox-streets-v7 to all mapstyles.
 * Removed implicit default dependencies on MapBox tileservers by requiring explicit styles URLs in more places.
-    - Merged in <https://github.com/map-vina/mapvina-navigation-ios/pull/45>.
+    - Merged in <https://github.com/mapvina/mapvina-navigation-ios/pull/45>.
     - BREAKING: Removed `MLNStyle` extensions referencing non-functioning MapBox styles, e.g. `MLNStyle.navigationGuidanceDayStyleURL`.
     - Added `Day/NightStyle(styleURL:)` which takes an explicit URL to a hosting tileserver style.
     - Added `Day/NightStyle(demoStyle: ())` as an explicit alternative when the user doesn't have a tileserver handy. This uses MapVina's demo style and is intended for testing and demonstration use only.
     - Deprecated `DayStyle()`/`NightStyle()` initializers because they were backed by an implicit tile service. If these default styles *are* still used, they'll now use the MapVina demo style.
     - `NavigationViewController` now expects explicit style URLs with `NavigationViewController(route:dayStyleURL:nightStyleURL:...)` or NavigationViewController(route:dayStyle:nightStyle:...)` and the existing initializer, which allowed "default" styles, is deprecated and uses the MapVina demo styles.
 * Fix: NavigationViewController was not re-routing when the user went off route.
-    - Merged in <https://github.com/map-vina/mapvina-navigation-ios/pull/47>
+    - Merged in <https://github.com/mapvina/mapvina-navigation-ios/pull/47>
 * Fix: NavigationViewController displayed incorrect `speedMultiplier` when using SimulatedLocationManager
-    - Merged in <https://github.com/map-vina/mapvina-navigation-ios/pull/49>
+    - Merged in <https://github.com/mapvina/mapvina-navigation-ios/pull/49>
 * Adjusted the camera during navigation to show more of what's "ahead" in the route - effectively moving the puck lower on the screen. As before, see `NavigationMapViewCourseTrackingDelegate.updateCamera(_:location:,routeProgress:)` if you want to customize this behavior.
-    - Merged in <https://github.com/map-vina/mapvina-navigation-ios/pull/92>
+    - Merged in <https://github.com/mapvina/mapvina-navigation-ios/pull/92>
 
 ## v2.0.0 (May 23, 2023)
 * Upgrade minimum iOS version from 11.0 to 12.0.

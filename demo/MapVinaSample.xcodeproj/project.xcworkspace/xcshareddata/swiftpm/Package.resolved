@@ -1,5 +1,5 @@
 {
-  "originHash" : "bb2206e5ce5d6d379f8f243ec08be8f05b2843fd251dfef8affdcab19a90387e",
+  "originHash" : "e6f37c6f07f59b7db9b2d14e03c27c20c5b003ee23d3f5a9e22ef5350efd84d5",
   "pins" : [
     {
       "identity" : "mapbox-directions-swift",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "6c19ecc4e1324887ae3250802b8d13d8d8b3ff2d",
         "version" : "0.23.3"
+      }
+    },
+    {
+      "identity" : "mapvina-gl-native-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mapvina/mapvina-gl-native-distribution.git",
+      "state" : {
+        "revision" : "80632031c693cff41f0a7e29490d7454061f1d3a",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "mapvina-navigation-ios",
+      "kind" : "localSourceControl",
+      "location" : "/Volumes/DATA/MapVina/mapvina-migration-workspace/upstream-maplibre/mapvina-document-ios-github/demo/libs/mapvina-navigation-ios",
+      "state" : {
+        "branch" : "fix",
+        "revision" : "d92f24f36aeed571bce16a9126929108e2486d14"
       }
     },
     {
@@ -26,24 +44,6 @@
       "state" : {
         "revision" : "c2b96f2d5fb7f835b91cefac5e83101f54643901",
         "version" : "3.0.1"
-      }
-    },
-    {
-      "identity" : "trackasia-gl-native-distribution",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/track-asia/trackasia-gl-native-distribution",
-      "state" : {
-        "branch" : "2.0.3",
-        "revision" : "530697abce50eb89b466916ad0ec3a7e3f1cfcdf"
-      }
-    },
-    {
-      "identity" : "trackasia-navigation-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/track-asia/trackasia-navigation-ios",
-      "state" : {
-        "branch" : "2.0.3",
-        "revision" : "5e9ad84506d63404bba8a62c4cb3fa55d75cc5e2"
       }
     },
     {

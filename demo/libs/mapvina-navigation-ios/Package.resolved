@@ -37,12 +37,12 @@
       }
     },
     {
-      "identity" : "trackasia-gl-native-distribution",
+      "identity" : "mapvina-gl-native-distribution",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/track-asia/trackasia-gl-native-distribution.git",
+      "location" : "https://github.com/mapvina/mapvina-gl-native-distribution.git",
       "state" : {
-        "revision" : "530697abce50eb89b466916ad0ec3a7e3f1cfcdf",
-        "version" : "2.0.3"
+        "revision" : "80632031c693cff41f0a7e29490d7454061f1d3a",
+        "version" : "1.0.0"
       }
     },
     {

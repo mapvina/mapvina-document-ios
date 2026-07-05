@@ -1,6 +1,6 @@
-[![MapVina Logo](https://github.com/map-vina/mapvina-navigation-ios/blob/main/.github/splash-image-ios.png?raw=true)](https://map-vina.com)
+[![MapVina Logo](https://github.com/mapvina/mapvina-navigation-ios/blob/main/.github/splash-image-ios.png?raw=true)](https://mapvina.com)
 
-The Mapvina Navigation SDK for iOS is built on a fork of the [Mapbox Navigation SDK v0.21](https://github.com/map-vina/mapvina-navigation-ios/tree/v0.21.0) which is build on top of the [Mapbox Directions API](https://www.mapbox.com/directions) (v0.23.0) and contains logic needed to get timed navigation instructions.
+The Mapvina Navigation SDK for iOS is built on a fork of the [Mapbox Navigation SDK v0.21](https://github.com/mapvina/mapvina-navigation-ios/tree/v0.21.0) which is build on top of the [Mapbox Directions API](https://www.mapbox.com/directions) (v0.23.0) and contains logic needed to get timed navigation instructions.
 
 With this SDK you can implement turn by turn navigation in your own iOS app while hosting your own Map tiles and Directions API.
 
@@ -15,7 +15,7 @@ All issues are covered with this SDK.
 # What have we changed
 
 - Removed EventManager and all its references, this manager collected telemetry data which we don't want to send
-- Transitioned from the [Mapbox SDK](https://github.com/mapbox/mapbox-gl-native-ios) (version 4.3) to [Mapvina Maps SDK](https://github.com/map-vina/mapvina-gl-native) (version 6.0.0)
+- Transitioned from the [Mapbox SDK](https://github.com/mapbox/mapbox-gl-native-ios) (version 4.3) to [Mapvina Maps SDK](https://github.com/mapvina/mapvina-gl-native) (version 6.0.0)
 - Added optional config parameter in NavigationMapView constructor to customize certain properties like route line color
 
 # Migrating from version 3 to version 4
@@ -71,7 +71,7 @@ Install this package using the [Swift Package Manager](https://www.swift.org/doc
 
 1. Open your project in Xcode.
 1. -> File -> Add Package Dependencies
-1. Enter the URL of this repository into the search field: https://github.com/map-vina/mapvina-navigation-ios
+1. Enter the URL of this repository into the search field: https://github.com/mapvina/mapvina-navigation-ios
   1. Press "Add Package".
   1. In the modal, update "Add to Target" to include your application.
   1. Complete the installation by pressing "Add Package".
@@ -84,8 +84,8 @@ Install this package using the [Swift Package Manager](https://www.swift.org/doc
 
 # Getting Help
 
-- **Have a bug to report?** [Open an issue](https://github.com/map-vina/mapvina-navigation-ios/issues). If possible, include the version of Mapvina Services, a full log, and a project that shows the issue.
-- **Have a feature request?** [Open an issue](https://github.com/map-vina/mapvina-navigation-ios/issues/new). Tell us what the feature should do and why you want the feature.
+- **Have a bug to report?** [Open an issue](https://github.com/mapvina/mapvina-navigation-ios/issues). If possible, include the version of Mapvina Services, a full log, and a project that shows the issue.
+- **Have a feature request?** [Open an issue](https://github.com/mapvina/mapvina-navigation-ios/issues/new). Tell us what the feature should do and why you want the feature.
 
 ## Sample code
 
@@ -95,7 +95,7 @@ We do provide a limited example app but its not functional right out of the box.
 2. You need a maptile source. The example uses a demo source which only displays country borders.
 3. Tap the play button to start a navigation
 
-[![MapVina Logo](.github/navigation.png)](https://map-vina.com)
+[![MapVina Logo](.github/navigation.png)](https://mapvina.com)
 
 ## Community
 
