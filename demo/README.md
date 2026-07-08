@@ -310,7 +310,7 @@ MapVina là ứng dụng iOS demo sử dụng SwiftUI và MapVina Map SDK, trìn
 ## Đóng góp & liên hệ
 - Đóng góp code qua Pull Request, tuân thủ coding convention trong `Views/README.md`
 - Báo lỗi hoặc đề xuất tính năng mới qua Issues
-- Liên hệ: [your-email@example.com] hoặc [https://github.com/mapvina/mapvina-demo-ios]
+- Liên hệ: support@mapvina.com hoặc [MapVina Document iOS](https://github.com/mapvina/mapvina-document-ios)
 
 ## Hướng dẫn sử dụng từng màn hình chính
 

@@ -15,7 +15,7 @@ All issues are covered with this SDK.
 # What have we changed
 
 - Removed EventManager and all its references, this manager collected telemetry data which we don't want to send
-- Transitioned from the [Mapbox SDK](https://github.com/mapbox/mapbox-gl-native-ios) (version 4.3) to [Mapvina Maps SDK](https://github.com/mapvina/mapvina-gl-native) (version 6.0.0)
+- Transitioned from the [Mapbox SDK](https://github.com/mapbox/mapbox-gl-native-ios) (version 4.3) to [Mapvina Maps SDK](https://github.com/mapvina/mapvina-gl-native-distribution) (version 6.0.0)
 - Added optional config parameter in NavigationMapView constructor to customize certain properties like route line color
 
 # Migrating from version 3 to version 4

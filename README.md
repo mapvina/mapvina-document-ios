@@ -244,20 +244,14 @@ class MapViewController: UIViewController {
   - Xử lý render map tiles
   - Quản lý vector tiles
 
-- [MapVina Directions](https://github.com/mapvina/mapvina-directions-swift)
-  - API chỉ đường
-  - Tìm đường tối ưu
-  - Hỗ trợ nhiều phương tiện di chuyển
+- [MapVina Navigation iOS](https://github.com/mapvina/mapvina-navigation-ios)
+  - API chỉ đường và điều hướng
+  - Vẽ/quản lý polyline, encode/decode tọa độ
+  - Tìm đường tối ưu, hỗ trợ nhiều phương tiện
 
-- [MapVina Polyline](https://github.com/mapvina/mapvina-polyline)
-  - Vẽ và quản lý polyline
-  - Encode/decode tọa độ
-  - Tối ưu hiển thị đường đi
-
-- [MapVina Extension](https://github.com/mapvina/mapvina-annotation-extension)
-  - Các extension mở rộng
-  - Công cụ annotation
-  - Tùy chỉnh marker và overlay
+- [MapVina GL Native Distribution](https://github.com/mapvina/mapvina-gl-native-distribution)
+  - Annotation, marker và overlay
+  - Các extension mở rộng trên core SDK
 
 #### Lưu ý quan trọng
 1. Luôn kiểm tra version compatibility giữa các thư viện
