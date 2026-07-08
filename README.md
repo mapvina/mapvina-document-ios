@@ -44,14 +44,14 @@ Thành phần chính (tham khảo repo):
 ```
 https://github.com/mapvina/mapvina-gl-native-distribution
 ```
-5. Chọn version: `2.0.3`
+5. Chọn version: `1.0.0`
 
 #### 1.2. Thêm MapVina Navigation iOS
 
 **Cách 1: Swift Package Manager (khuyến nghị)**
 1. File → Add Package Dependencies
 2. Nhập URL: `https://github.com/mapvina/mapvina-navigation-ios`
-3. Chọn version phù hợp với project của bạn
+3. Dependency Rule: chọn branch `main` (hiện chưa có bản release gắn tag; hoặc dùng Cách 2 Local Integration như demo)
 4. Add to target
 
 **Cách 2: Local Integration (như demo)**

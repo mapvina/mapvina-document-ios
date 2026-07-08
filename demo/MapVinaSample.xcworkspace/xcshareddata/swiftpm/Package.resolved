@@ -1,60 +1,51 @@
 {
-  "originHash" : "e6f37c6f07f59b7db9b2d14e03c27c20c5b003ee23d3f5a9e22ef5350efd84d5",
-  "pins" : [
+  "originHash": "e6f37c6f07f59b7db9b2d14e03c27c20c5b003ee23d3f5a9e22ef5350efd84d5",
+  "pins": [
     {
-      "identity" : "mapbox-directions-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/flitsmeister/mapbox-directions-swift",
-      "state" : {
-        "revision" : "6c19ecc4e1324887ae3250802b8d13d8d8b3ff2d",
-        "version" : "0.23.3"
+      "identity": "mapbox-directions-swift",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/flitsmeister/mapbox-directions-swift",
+      "state": {
+        "revision": "6c19ecc4e1324887ae3250802b8d13d8d8b3ff2d",
+        "version": "0.23.3"
       }
     },
     {
-      "identity" : "mapvina-gl-native-distribution",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapvina/mapvina-gl-native-distribution.git",
-      "state" : {
-        "revision" : "80632031c693cff41f0a7e29490d7454061f1d3a",
-        "version" : "1.0.0"
+      "identity": "mapvina-gl-native-distribution",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/mapvina/mapvina-gl-native-distribution.git",
+      "state": {
+        "revision": "80632031c693cff41f0a7e29490d7454061f1d3a",
+        "version": "1.0.0"
       }
     },
     {
-      "identity" : "mapvina-navigation-ios",
-      "kind" : "localSourceControl",
-      "location" : "/Volumes/DATA/MapVina/mapvina-migration-workspace/upstream-maplibre/mapvina-document-ios-github/demo/libs/mapvina-navigation-ios",
-      "state" : {
-        "branch" : "fix",
-        "revision" : "d92f24f36aeed571bce16a9126929108e2486d14"
+      "identity": "polyline",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/raphaelmor/Polyline",
+      "state": {
+        "revision": "353f80378dcd8f17eefe8550090c6b1ae3c9da23",
+        "version": "5.1.0"
       }
     },
     {
-      "identity" : "polyline",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/raphaelmor/Polyline",
-      "state" : {
-        "revision" : "353f80378dcd8f17eefe8550090c6b1ae3c9da23",
-        "version" : "5.1.0"
+      "identity": "solar",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/ceeK/Solar.git",
+      "state": {
+        "revision": "c2b96f2d5fb7f835b91cefac5e83101f54643901",
+        "version": "3.0.1"
       }
     },
     {
-      "identity" : "solar",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ceeK/Solar.git",
-      "state" : {
-        "revision" : "c2b96f2d5fb7f835b91cefac5e83101f54643901",
-        "version" : "3.0.1"
-      }
-    },
-    {
-      "identity" : "turf-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/turf-swift.git",
-      "state" : {
-        "revision" : "213050191cfcb3d5aa76e1fa90c6ff1e182a42ca",
-        "version" : "2.8.0"
+      "identity": "turf-swift",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/mapbox/turf-swift.git",
+      "state": {
+        "revision": "213050191cfcb3d5aa76e1fa90c6ff1e182a42ca",
+        "version": "2.8.0"
       }
     }
   ],
-  "version" : 3
+  "version": 3
 }

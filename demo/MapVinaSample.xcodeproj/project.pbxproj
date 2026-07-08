@@ -457,7 +457,7 @@
 			);
 			mainGroup = 99EA7C562B294F9B00B58487;
 			packageReferences = (
-				9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "mapvina-navigation-ios" */,
+				9985736E2DB7288D00290C22 /* XCLocalSwiftPackageReference "libs/mapvina-navigation-ios" */,
 			);
 			productRefGroup = 99EA7C602B294F9B00B58487 /* Products */;
 			projectDirPath = "";
@@ -951,16 +951,12 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "mapvina-navigation-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Volumes/DATA/MapVina/mapvina-migration-workspace/upstream-maplibre/mapvina-document-ios-github/demo/libs/mapvina-navigation-ios";
-			requirement = {
-				branch = fix;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		9985736E2DB7288D00290C22 /* XCLocalSwiftPackageReference "libs/mapvina-navigation-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "libs/mapvina-navigation-ios";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		990504BC2D7552EF00642B35 /* MapboxNavigation */ = {
@@ -989,7 +985,7 @@
 		};
 		9985736F2DB7288D00290C22 /* MapboxNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9985736E2DB7288D00290C22 /* XCRemoteSwiftPackageReference "mapvina-navigation-ios" */;
+			package = 9985736E2DB7288D00290C22 /* XCLocalSwiftPackageReference "libs/mapvina-navigation-ios" */;
 			productName = MapboxNavigation;
 		};
 		99898A1E2D7A898E004ED9B0 /* MapboxNavigation */ = {
