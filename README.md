@@ -140,9 +140,9 @@ static let baseurl = "https://maps.mapvina.com/"
 static let baseurlSG = "https://sg-maps.mapvina.com/" 
 static let baseurlTH = "https://th-maps.mapvina.com/"
 
-static let urlStyleVN = "https://maps.mapvina.com/styles/v1/streets.json?key=public"
-static let urlStyleSG = "https://sg-maps.mapvina.com/styles/v1/streets.json?key=public"
-static let urlStyleTH = "https://th-maps.mapvina.com/styles/v1/streets.json?key=public"
+static let urlStyleVN = "https://maps.mapvina.com/styles/v2/streets.json?key=public"
+static let urlStyleSG = "https://sg-maps.mapvina.com/styles/v2/streets.json?key=public"
+static let urlStyleTH = "https://th-maps.mapvina.com/styles/v2/streets.json?key=public"
 
 // Sử dụng MapUtils để lấy URL động
 let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
@@ -188,7 +188,7 @@ class MapViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let styleURL = URL(string: "https://maps.mapvina.com/styles/v1/-streets.json?key={{MAPVINA_MAP_KEY}}")
+        let styleURL = URL(string: "https://maps.mapvina.com/styles/v2/streets.json?key={{MAPVINA_MAP_KEY}}")
         let mv = NavigationMapView(frame: view.bounds, styleURL: styleURL)
         mapView = mv
         view.insertSubview(mv, at: 0)
