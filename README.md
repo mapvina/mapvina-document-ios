@@ -75,6 +75,7 @@ target 'MapVinaSample' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.10.2'
+  pod 'GoogleMaps', '9.3.0'
   pod 'MapboxGeocoder.swift', '~> 0.15'
 end
 
@@ -91,16 +92,20 @@ post_install do |installer|
          end
     end
   end
+  # ⚠️ Phải để RỖNG để map render được trên Simulator (Apple Silicon).
+  # Nếu đặt "arm64, x86_64" sẽ loại kiến trúc simulator và app không build/chạy được trên máy ảo.
   installer.pods_project.build_configurations.each do |config|
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64, x86_64"
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = ""
   end
 end
 ```
 
-**Lưu ý quan trọng:**
-- **MapVina Navigation iOS** được tích hợp qua Swift Package Manager hoặc thư mục `libs/`
-- **Không sử dụng** pod 'MapVina' trực tiếp
-- **Dependencies chính**: Alamofire (networking), GoogleMaps (mapping), MapboxGeocoder (search)
+**Lưu ý quan trọng (khớp `demo/Podfile` thực tế):**
+- **MapVina native** được nhúng qua **`libs/MapVina.xcframework`** (trong demo là symlink tới
+  `mapvina-gl-native-distribution/xcframework/MapVina.xcframework`); SPM là lựa chọn thay thế cho dự án của bạn.
+- **MapVina Navigation iOS** được tích hợp qua thư mục **`libs/mapvina-navigation-ios/`** (không qua CocoaPods).
+- **Không** dùng `pod 'MapVina'`.
+- **Pods thực tế**: `Alamofire` (networking), `GoogleMaps 9.3.0`, `MapboxGeocoder.swift ~> 0.15` (search).
 
 **Cài đặt:**
 ```bash
@@ -140,19 +145,23 @@ static let baseurl = "https://maps.mapvina.com/"
 static let baseurlSG = "https://sg-maps.mapvina.com/" 
 static let baseurlTH = "https://th-maps.mapvina.com/"
 
-static let urlStyleVN = "https://maps.mapvina.com/styles/v2/streets.json?key=public"
-static let urlStyleSG = "https://sg-maps.mapvina.com/styles/v2/streets.json?key=public"
-static let urlStyleTH = "https://th-maps.mapvina.com/styles/v2/streets.json?key=public"
+// Streets (2D) — dùng key=public_key (khớp Constants.swift, đã kiểm chứng trả HTTP 200)
+static let urlStyleVN = "https://maps.mapvina.com/styles/v2/streets.json?key=public_key"
+static let urlStyleSG = "https://sg-maps.mapvina.com/styles/v2/streets.json?key=public_key"
+static let urlStyleTH = "https://th-maps.mapvina.com/styles/v2/streets.json?key=public_key"
+
+// Satellite/3D — dùng key=public (theo Constants.swift)
+static let urlStyle3DVN = "https://tiles.mapvina.com/sats/v1/satellite/satellite.json?key=public"
 
 // Sử dụng MapUtils để lấy URL động
 let styleURL = MapUtils.urlStyle(idCountry: "vn", is3D: false)
 ```
 
-**Lưu ý:**
-- Demo sử dụng key "public" cho testing
-- Production: thay bằng API key thực tế của bạn
-- Hỗ trợ 3 quốc gia: VN (mặc định), SG, TH
-- Tự động chuyển đổi style dựa trên quốc gia được chọn
+**Lưu ý (đã kiểm chứng):**
+- Style **streets** yêu cầu `?key=public_key` — endpoint `.../styles/v2/streets.json?key=public_key`
+  trả **HTTP 200** ("MapVina Streets Style"); dùng `?key=public` cho streets trả **HTTP 500**.
+- Production: thay bằng API key thực tế của bạn.
+- Hỗ trợ 3 quốc gia: VN (mặc định), SG, TH; tự động đổi style theo quốc gia.
 
 
 
@@ -176,19 +185,10 @@ import MapboxDirections
 class MapViewController: UIViewController {
     var mapView: NavigationMapView?
 
-    var mapView: NavigationMapView? {
-      didSet {
-          oldValue?.removeFromSuperview()
-          if let mapView = mapView {
-              configureMapView(mapView)
-              view.insertSubview(mapView, belowSubview: longPressHintView)
-          }
-      }
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let styleURL = URL(string: "https://maps.mapvina.com/styles/v2/streets.json?key={{MAPVINA_MAP_KEY}}")
+        // streets yêu cầu key=public_key (xem mục Style URL)
+        let styleURL = URL(string: "https://maps.mapvina.com/styles/v2/streets.json?key=public_key")
         let mv = NavigationMapView(frame: view.bounds, styleURL: styleURL)
         mapView = mv
         view.insertSubview(mv, at: 0)
@@ -258,3 +258,32 @@ class MapViewController: UIViewController {
 2. Cấu hình quyền truy cập vị trí trong Info.plist
 3. Test kỹ các tính năng trên nhiều thiết bị
 4. Tối ưu hiệu năng khi sử dụng nhiều tính năng cùng lúc
+
+
+## 7) Kiểm chứng Build & Runtime
+
+Tài liệu này đã được đồng bộ với `demo/` và **kiểm chứng bằng build + chạy trên iOS Simulator**.
+
+### iOS — chạy được (đã kiểm chứng)
+- Môi trường: **Xcode 26.4**, `MapVinaSample.xcworkspace` (CocoaPods: `Alamofire`, `GoogleMaps 9.3.0`,
+  `MapboxGeocoder.swift 0.15`), MapVina native qua `libs/MapVina.xcframework` (có slice
+  `ios-arm64_x86_64-simulator`), navigation qua `libs/mapvina-navigation-ios/`.
+- `xcodebuild ... -sdk iphonesimulator -destination 'iPhone 16'` → **BUILD SUCCEEDED**.
+- Cài + chạy trên iPhone 16 simulator (iOS 18.6): app khởi động, **style "streets" của MapVina
+  render đúng** (không crash). Ảnh: `demo/simulator_ios_map_verification.png`.
+- **Không phát hiện lỗi API key** như phía Flutter/Android — vì iOS nạp style trực tiếp từ URL
+  đã kèm `?key=public_key` (MapLibre iOS không bắt buộc set key qua `MLNSettings`).
+
+### Android — không áp dụng
+- Repo này là **SDK/tài liệu iOS thuần** (không có target Android). Phần Android được xử lý ở các
+  repo riêng (`mapvina-document-android`, `mapvina-document-flutter`).
+
+### Điểm cần lưu ý (đã kiểm chứng bằng HTTP)
+- `styles/v2/streets.json?key=public_key` → **HTTP 200** (style hợp lệ). `?key=public` → **HTTP 500**.
+  ⇒ Streets phải dùng `public_key` (đã sửa trong tài liệu cho khớp `Constants.swift`).
+- Endpoint satellite `tiles.mapvina.com/.../satellite.json?key=public` hiện trả **HTTP 500** khi
+  kiểm tra trực tiếp — chế độ satellite/3D **chưa** được kiểm chứng runtime (mặc định demo dùng streets 2D).
+
+### Chưa kiểm chứng trong môi trường này
+- Điều hướng turn-by-turn, geocoding/Directions, chế độ satellite/3D, và chạy trên thiết bị thật
+  (phụ thuộc mạng + khoá hợp lệ) — chỉ mô tả theo mã nguồn.

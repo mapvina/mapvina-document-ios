@@ -39,11 +39,13 @@ target 'MapVinaSample' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.10.2'
+  pod 'GoogleMaps', '9.3.0'
   pod 'MapboxGeocoder.swift', '~> 0.15'
 end
 ```
 
-**Lưu ý:** MapVina Navigation iOS được tích hợp qua thư mục `libs/mapvina-navigation-ios` hoặc có thể cài đặt qua Swift Package Manager:
+**Lưu ý:** MapVina native được nhúng qua `libs/MapVina.xcframework`, còn MapVina Navigation iOS qua
+thư mục `libs/mapvina-navigation-ios/` (hoặc Swift Package Manager cho dự án của bạn):
 ```
 https://github.com/mapvina/mapvina-navigation-ios
 ```
@@ -255,14 +257,17 @@ MapVina là ứng dụng iOS demo sử dụng SwiftUI và MapVina Map SDK, trìn
 - CocoaPods (hoặc Swift Package Manager)
 
 ### Cài đặt
-1. **Thêm MapVina SDK và các dependency vào Podfile:**
+1. **Dependencies qua CocoaPods** (khớp `Podfile` thực tế — MapVina/Navigation KHÔNG qua CocoaPods):
    ```ruby
-   pod 'MapVina', '~> 1.0'
-   pod 'MapboxDirections.swift'
-   pod 'MapboxCoreNavigation'
-   pod 'MapboxNavigation'
+   pod 'Alamofire', '~> 5.10.2'
+   pod 'GoogleMaps', '9.3.0'
+   pod 'MapboxGeocoder.swift', '~> 0.15'
    ```
-   Chạy `pod install`
+   Chạy `pod install`.
+
+   **MapVina native + Navigation** được nhúng qua local libs:
+   - `libs/MapVina.xcframework` (hoặc SPM package `mapvina-gl-native-distribution`)
+   - `libs/mapvina-navigation-ios/` (module `MapboxCoreNavigation`, `MapboxNavigation`, `MapboxDirections`)
 
 2. **Copy các module cần thiết:**
    - `MapVina/Views/` (hoặc chỉ các Tabs/Components bạn muốn)
