@@ -11,6 +11,9 @@
 > XCFramework **local** chứa logo Brand Kit mới; bản local không thay thế
 > release public. Sample mặc định vẫn resolve SPM `1.0.0`; phải phát hành
 > XCFramework mới, cập nhật checksum/tag SPM rồi mới nâng pin cho người dùng.
+> Workflow release hiện stage `prerelease` công khai, không phải draft; cần
+> đảm bảo đường tải SPM từ bản draft và chỉ công khai sau khi CocoaPods/SPM
+> thành công trước khi dispatch `ios-v1.0.1`.
 
 - Hướng dẫn tích hợp vào dự án iOS (SPM, CocoaPods, hoặc libs nội bộ)
 - Bổ sung các phần còn thiếu thường gặp khi triển khai thực tế
