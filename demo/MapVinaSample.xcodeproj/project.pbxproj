@@ -105,7 +105,6 @@
 		99A213692B3A8AE300D3DB47 /* PolylineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineView.swift; sourceTree = "<group>"; };
 		99A2136D2B3ABE3B00D3DB47 /* WayPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayPointView.swift; sourceTree = "<group>"; };
 		99A213712B3ACDB400D3DB47 /* RouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
-		99E9DF892D70269800EC87B9 /* MapVina.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapVina.xcframework; path = libs/MapVina.xcframework; sourceTree = "<group>"; };
 		99EA7C5F2B294F9B00B58487 /* MapVinaSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapVinaSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA7C622B294F9B00B58487 /* MapVinaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVinaDemoApp.swift; sourceTree = "<group>"; };
 		99EA7C662B294F9C00B58487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -338,7 +337,6 @@
 		C606FEFF4ACD7ACE640250EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				99E9DF892D70269800EC87B9 /* MapVina.xcframework */,
 				99EA7CA62B29B15300B58487 /* Mapbox.framework */,
 				99EA7CA32B29B15200B58487 /* MapboxCoreNavigation.xcframework */,
 				99EA7CA22B29B15200B58487 /* MapboxDirections.xcframework */,

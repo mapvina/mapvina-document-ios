@@ -1,5 +1,17 @@
 # MapVina Map iOS SDK V2 — README tổng hợp 
 
+> **Trạng thái phát hành kiểm tra 29/09/2026:** GitHub `mapvina-native` mới có
+> `ios-v1.0.0`, SPM distribution mới có tag `1.0.0`; dù source native khai báo
+> `1.0.1`, không có binary/tag `1.0.1` công khai để tích hợp. CocoaPods trunk
+> không tìm thấy pod `MapVina` (HTTP 404). Đừng dùng `1.0.1` hoặc
+> `pod 'MapVina'` trong ứng dụng mới trước khi phát hành được xác minh.
+> Đã giải nén ZIP XCFramework public `ios-v1.0.0`: asset catalog còn
+> `mapbox_helmet` và `mapvina-logo-icon` cũ, chưa có
+> `mapvina-logo-horizontal-primary`. Source native trên `main` build được
+> XCFramework **local** chứa logo Brand Kit mới; bản local không thay thế
+> release public. Sample mặc định vẫn resolve SPM `1.0.0`; phải phát hành
+> XCFramework mới, cập nhật checksum/tag SPM rồi mới nâng pin cho người dùng.
+
 - Hướng dẫn tích hợp vào dự án iOS (SPM, CocoaPods, hoặc libs nội bộ)
 - Bổ sung các phần còn thiếu thường gặp khi triển khai thực tế
 - Liệt kê lỗi thường gặp và cách khắc phục
@@ -101,8 +113,9 @@ end
 ```
 
 **Lưu ý quan trọng (khớp `demo/Podfile` thực tế):**
-- **MapVina native** được nhúng qua **`libs/MapVina.xcframework`** (trong demo là symlink tới
-  `mapvina-gl-native-distribution/xcframework/MapVina.xcframework`); SPM là lựa chọn thay thế cho dự án của bạn.
+- **MapVina native** được resolve bằng Swift Package
+  `mapvina-gl-native-distribution` **`1.0.0`** trong sample; không copy binary
+  local vào `demo/libs/`. Bản public này vẫn dùng logo ornament cũ.
 - **MapVina Navigation iOS** được tích hợp qua thư mục **`libs/mapvina-navigation-ios/`** (không qua CocoaPods).
 - **Không** dùng `pod 'MapVina'`.
 - **Pods thực tế**: `Alamofire` (networking), `GoogleMaps 9.3.0`, `MapboxGeocoder.swift ~> 0.15` (search).
@@ -262,12 +275,20 @@ class MapViewController: UIViewController {
 
 ## 7) Kiểm chứng Build & Runtime
 
+### Kiểm tra bổ sung 27/09/2026
+- `xcodebuild -workspace MapVinaSample.xcworkspace -scheme MapVinaSample -configuration Debug
+  -sdk iphonesimulator -destination 'platform=iOS Simulator,id=<UDID>' CODE_SIGNING_ALLOWED=NO build`
+  → **BUILD SUCCEEDED**; cài/chạy trên iPhone 17 Pro iOS 26.4, streets hiển thị.
+- ZIP public `ios-v1.0.0` vẫn chứa logo cũ; XCFramework build từ native `main`
+  đã chứa asset `mapvina-logo-horizontal-primary` và `mapvina-icon-primary`.
+  Không dùng bản local làm bằng chứng rằng iOS `1.0.1` đã phát hành.
+
 Tài liệu này đã được đồng bộ với `demo/` và **kiểm chứng bằng build + chạy trên iOS Simulator**.
 
 ### iOS — chạy được (đã kiểm chứng)
 - Môi trường: **Xcode 26.4**, `MapVinaSample.xcworkspace` (CocoaPods: `Alamofire`, `GoogleMaps 9.3.0`,
-  `MapboxGeocoder.swift 0.15`), MapVina native qua `libs/MapVina.xcframework` (có slice
-  `ios-arm64_x86_64-simulator`), navigation qua `libs/mapvina-navigation-ios/`.
+  `MapboxGeocoder.swift 0.15`), MapVina native qua SPM distribution `1.0.0`
+  (có simulator slice), navigation qua `libs/mapvina-navigation-ios/`.
 - `xcodebuild ... -sdk iphonesimulator -destination 'iPhone 16'` → **BUILD SUCCEEDED**.
 - Cài + chạy trên iPhone 16 simulator (iOS 18.6): app khởi động, **style "streets" của MapVina
   render đúng** (không crash). Ảnh: `demo/simulator_ios_map_verification.png`.

@@ -99,6 +99,7 @@ struct ContentView: View {
                     
                     // Overlay for the current tab
                     overlayForCurrentTab
+                        .padding(.bottom, 48)
                     
                     // Loading overlay
                     if isLoading {
@@ -324,4 +325,4 @@ extension Binding {
             }
         )
     }
-} 
+}

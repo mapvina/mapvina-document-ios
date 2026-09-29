@@ -1,6 +1,13 @@
 // swift-tools-version: 5.9
 
 import PackageDescription
+import Foundation
+
+let nativePackagePath = ProcessInfo.processInfo.environment["MAPVINA_NATIVE_PACKAGE_PATH"]
+let nativePackageName = nativePackagePath.map { URL(fileURLWithPath: $0).lastPathComponent } ?? "mapvina-gl-native-distribution"
+let nativePackage: Package.Dependency = nativePackagePath.map {
+    .package(path: $0)
+} ?? .package(url: "https://github.com/mapvina/mapvina-gl-native-distribution.git", exact: "1.0.0")
 
 let package = Package(
     name: "mapvina-navigation-ios",
@@ -19,7 +26,7 @@ let package = Package(
         .package(url: "https://github.com/mapbox/turf-swift.git", from: "2.8.0"),
         .package(url: "https://github.com/ceeK/Solar.git", exact: "3.0.1"),
         .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.53.6"),
-        .package(url: "https://github.com/mapvina/mapvina-gl-native-distribution.git", from: "1.0.0")
+        nativePackage
     ],
     targets: [
         .target(
@@ -51,7 +58,7 @@ let package = Package(
         .target(
             name: "MapboxNavigationObjC",
             dependencies: [
-                .product(name: "MapVina", package: "mapvina-gl-native-distribution")
+                .product(name: "MapVina", package: nativePackageName)
             ],
             path: "MapboxNavigationObjC"
         ),

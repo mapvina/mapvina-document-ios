@@ -44,11 +44,23 @@ target 'MapVinaSample' do
 end
 ```
 
-**Lưu ý:** MapVina native được nhúng qua `libs/MapVina.xcframework`, còn MapVina Navigation iOS qua
+**Lưu ý:** MapVina native được resolve từ Swift Package
+`mapvina-gl-native-distribution` tag `1.0.0`, còn MapVina Navigation iOS từ
 thư mục `libs/mapvina-navigation-ios/` (hoặc Swift Package Manager cho dự án của bạn):
 ```
 https://github.com/mapvina/mapvina-navigation-ios
 ```
+
+**Kiểm tra logo mới trước release (chỉ local):** Build
+`//platform/ios:MapVina.dynamic` trong `mapvina-native`, giải nén
+`MapVina.dynamic.xcframework.zip` và tạo package Swift local tên
+`mapvina-gl-native-distribution`, chứa `Package.swift` với binary target
+`MapVina` trỏ tới `MapVina.xcframework` đã giải nén. Khi build workspace,
+đặt `MAPVINA_NATIVE_PACKAGE_PATH` là đường dẫn tuyệt đối của package này.
+Không commit binary/package local hoặc file `Package.resolved` sinh lại;
+build thông thường vẫn sử dụng tag public `1.0.0` và logo map cũ.
+Ảnh [simulator dùng binary local](simulator_logo_local_20260929.png) ghi nhận
+logo ngang bottom-start và icon Brand Kit trên header (iPhone 16, iOS 18.6).
 
 ### 2. Cấu Hình MapView
 ```swift
@@ -266,7 +278,7 @@ MapVina là ứng dụng iOS demo sử dụng SwiftUI và MapVina Map SDK, trìn
    Chạy `pod install`.
 
    **MapVina native + Navigation** được nhúng qua local libs:
-   - `libs/MapVina.xcframework` (hoặc SPM package `mapvina-gl-native-distribution`)
+   - SPM package `mapvina-gl-native-distribution` `1.0.0` (logo map vẫn cũ trong binary public)
    - `libs/mapvina-navigation-ios/` (module `MapboxCoreNavigation`, `MapboxNavigation`, `MapboxDirections`)
 
 2. **Copy các module cần thiết:**

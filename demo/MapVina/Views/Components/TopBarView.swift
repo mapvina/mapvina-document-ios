@@ -25,6 +25,7 @@ struct TopBarView: View {
                 // Logo and app name
                 HStack(spacing: 8) {
                     Image("app_logo")
+                        .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 24, height: 24)
@@ -84,4 +85,4 @@ struct TopBarView: View {
             print("🏷️ TopBarView appeared with title: \(screenTitle)")
         }
     }
-} 
+}
