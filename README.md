@@ -1,5 +1,10 @@
 # MapVina Map iOS SDK V2 — README tổng hợp 
 
+> **Verification 04/10/2026 — BUILD/RUNTIME PASS; BRANDING BLOCKED.**
+> SPM public `1.0.0`, native release `ios-v1.0.0`; source native VERSION `1.0.1` is not a published SDK.
+> See [verified setup, evidence and limitations](docs/verification/2026-10-04/README.md) before following older examples.
+> No new SDK was published by this documentation update.
+
 - Hướng dẫn tích hợp vào dự án iOS (SPM, CocoaPods, hoặc libs nội bộ)
 - Bổ sung các phần còn thiếu thường gặp khi triển khai thực tế
 - Liệt kê lỗi thường gặp và cách khắc phục
@@ -44,7 +49,7 @@ Thành phần chính (tham khảo repo):
 ```
 https://github.com/mapvina/mapvina-gl-native-distribution
 ```
-5. Chọn version: `1.0.0`
+5. Chọn Dependency Rule **Exact Version**: `1.0.0`. Public binary vẫn có logo cũ; chưa có public `1.0.1`.
 
 #### 1.2. Thêm MapVina Navigation iOS
 
@@ -110,9 +115,11 @@ pod install
 ```
 Mở file `.xcworkspace` để build project.
 
-2. Copy thư mục libs:
-   - Copy toàn bộ thư mục `libs` vào project của bạn
-   - Đảm bảo thêm các file vào target của project
+2. Phân biệt public native và source navigation local:
+   - Demo dùng package `demo/libs/mapvina-navigation-ios`, package này resolve native SPM exact `1.0.0` từ public release.
+   - Không copy XCFramework hoặc symlink absolute vào ứng dụng production; symlink cũ đã bị xóa.
+   - Navigation local là source demo; điều hướng turn-by-turn chưa được kiểm thử trong audit này.
+   - Local native override chỉ dành cho phát triển, không chứng minh release public. Xem báo cáo ngày 04/10/2026.
 
 3. Xử lý conflict (nếu có):
 ```bash
