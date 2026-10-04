@@ -1,0 +1,11 @@
+Raw log SHA-256: b21c0b4a030ab2fd119b8f133e419d81006d0687c1e8c53709c193256f43ebea
+Excerpt only; full output retained outside Git in the local audit directory.
+
+public_assets_sha256=47e24a4015c7b45368c538f240ecdc2c827fd1c1da1f040d62c4360a0b6e6016
+embedded_assets_sha256=47e24a4015c7b45368c538f240ecdc2c827fd1c1da1f040d62c4360a0b6e6016
+match=True
+... selected diagnostic lines ...
+... final output ...
+public_assets_sha256=47e24a4015c7b45368c538f240ecdc2c827fd1c1da1f040d62c4360a0b6e6016
+embedded_assets_sha256=47e24a4015c7b45368c538f240ecdc2c827fd1c1da1f040d62c4360a0b6e6016
+match=True

@@ -1,5 +1,10 @@
 # MapVina iOS Demo
 
+> **Verification 04/10/2026:** build và streets runtime PASS với SPM public exact
+> `1.0.0`; branding BLOCKED (logo cũ). [Evidence, build/run and limitations](../docs/verification/2026-10-04/README.md).
+> Không copy XCFramework local; CocoaPods MapVina trunk trả 404. Các tính năng
+> navigation/clustering/animation dưới đây chưa được kiểm runtime trong audit này.
+
 MapVina iOS Demo là một ứng dụng mẫu minh họa các tính năng chính của thư viện MapVina cho iOS. Ứng dụng bao gồm nhiều chế độ xem bản đồ khác nhau, mỗi chế độ tập trung vào một tính năng cụ thể.
 
 ## Các Tính Năng Chính
