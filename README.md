@@ -1,5 +1,10 @@
 # MapVina Map iOS SDK V2 — README tổng hợp 
 
+> **Verification 04/10/2026 — BUILD/RUNTIME PASS; BRANDING BLOCKED.**
+> SPM public `1.0.0`, native release `ios-v1.0.0`; source native VERSION `1.0.1` is not a published SDK.
+> See [verified setup, evidence and limitations](docs/verification/2026-10-04/README.md) before following older examples.
+> No new SDK was published by this documentation update.
+
 - Hướng dẫn tích hợp vào dự án iOS (SPM, CocoaPods, hoặc libs nội bộ)
 - Bổ sung các phần còn thiếu thường gặp khi triển khai thực tế
 - Liệt kê lỗi thường gặp và cách khắc phục
@@ -44,7 +49,7 @@ Thành phần chính (tham khảo repo):
 ```
 https://github.com/mapvina/mapvina-gl-native-distribution
 ```
-5. Chọn version: `1.0.0`
+5. Chọn Dependency Rule **Exact Version**: `1.0.0`. Public binary vẫn có logo cũ; chưa có public `1.0.1`.
 
 #### 1.2. Thêm MapVina Navigation iOS
 
@@ -110,9 +115,11 @@ pod install
 ```
 Mở file `.xcworkspace` để build project.
 
-2. Copy thư mục libs:
-   - Copy toàn bộ thư mục `libs` vào project của bạn
-   - Đảm bảo thêm các file vào target của project
+2. Phân biệt public native và source navigation local:
+   - Demo dùng package `demo/libs/mapvina-navigation-ios`, package này resolve native SPM exact `1.0.0` từ public release.
+   - Không copy XCFramework hoặc symlink absolute vào ứng dụng production; symlink cũ đã bị xóa.
+   - Navigation local là source demo; điều hướng turn-by-turn chưa được kiểm thử trong audit này.
+   - Local native override chỉ dành cho phát triển, không chứng minh release public. Xem báo cáo ngày 04/10/2026.
 
 3. Xử lý conflict (nếu có):
 ```bash
@@ -214,7 +221,89 @@ class MapViewController: UIViewController {
   <img src="https://git.advn.vn/sangnguyen/mapvina-document/-/raw/master/images/ios_7.png" alt="IOS" width="18%">
 </p>
 
-### 4. Thư viện Core và Tài nguyên
+### 4. Tùy biến Icon, Ornaments & Giao diện Core Bản đồ trên iOS
+
+MapVina iOS SDK (`MLNMapView`) cho phép tùy biến toàn diện các thành phần ornament trên bản đồ:
+
+#### a. Tùy biến Logo MapVina (`logoView`)
+```swift
+// Ẩn hoặc hiện logo
+mapView.showsLogoView = true
+
+// Điều chỉnh vị trí logo (Góc hiển thị)
+mapView.logoViewPosition = .bottomLeft // .topLeft, .topRight, .bottomLeft, .bottomRight
+
+// Căn chỉnh khoảng cách lề (margins)
+mapView.logoViewMargins = CGPoint(x: 16.0, y: 16.0)
+
+// Thay đổi hình ảnh logo tùy biến
+if let customLogo = UIImage(named: "custom_brand_logo") {
+    mapView.logoView.image = customLogo
+}
+```
+
+#### b. Tùy biến La bàn (`compassView`)
+```swift
+// Cấu hình chế độ hiển thị la bàn
+// .adaptive: Tự động ẩn khi hướng Bắc ở trên đỉnh, hiện khi xoay bản đồ
+// .visible: Luôn luôn hiển thị
+// .hidden: Ẩn hoàn toàn
+mapView.compassView.compassVisibility = .adaptive
+
+// Điều chỉnh vị trí và lề
+mapView.compassViewPosition = .topRight
+mapView.compassViewMargins = CGPoint(x: 16.0, y: 16.0)
+
+// Reset hướng bản đồ về hướng Bắc bằng code
+mapView.resetNorth()
+```
+
+#### c. Tùy biến Nút bản quyền thông tin (`attributionButton`)
+```swift
+// Ẩn hoặc hiện nút thông tin bản quyền
+mapView.showsAttributionButton = true
+
+// Vị trí nút thông tin
+mapView.attributionButtonPosition = .bottomRight
+mapView.attributionButtonMargins = CGPoint(x: 16.0, y: 16.0)
+```
+
+#### d. Tùy biến Điểm vị trí người dùng (`MLNUserLocationAnnotationView`)
+Mặc định SDK sử dụng `MLNFaux3DUserLocationAnnotationView`. Bạn có thể tùy biến màu sắc thông qua `MLNUserLocationAnnotationViewStyle`:
+```swift
+// Bật hiển thị vị trí người dùng và chỉ hướng
+mapView.showsUserLocation = true
+mapView.userTrackingMode = .followWithCourse // hoặc .followWithHeading
+
+// Tùy biến thông qua Delegate
+func mapView(_ mapView: MLNMapView, viewFor annotation: MLNAnnotation) -> MLNAnnotationView? {
+    if annotation is MLNUserLocation {
+        // Trả về custom MLNUserLocationAnnotationView hoặc tùy biến view hiện có
+        return nil // Dùng default style
+    }
+    return nil
+}
+```
+
+#### e. Tùy biến Default Marker (Ghim đánh dấu)
+```swift
+func mapView(_ mapView: MLNMapView, imageFor annotation: MLNAnnotation) -> MLNAnnotationImage? {
+    var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "custom-marker")
+    if annotationImage == nil {
+        var image = UIImage(named: "custom_pin")!
+        annotationImage = MLNAnnotationImage(image: image, reuseIdentifier: "custom-marker")
+    }
+    return annotationImage
+}
+```
+
+#### f. Dành cho nhà phát triển bảo trì Core (`mapvina-native`)
+Khi cần thay đổi tài nguyên vector gốc trong thư viện `MapVina.xcframework`:
+- Thư mục tài nguyên: `platform/ios/resources/Images.xcassets/`
+  - `mapvina-logo-horizontal-primary.imageset/`: Chứa file `mapvina-logo-horizontal-primary.svg` (vector)
+  - `Compass.imageset/`: Chứa file `compass.pdf` (vector định dạng PDF dùng cho la bàn)
+  - `default_marker.imageset/`: Chứa file `default_marker.pdf` (vector marker mặc định)
+  - `mapvina-icon-primary.imageset/`: Chứa icon vuông 32x32 của MapVina
 
 ### 5. Gợi ý mở rộng/tùy biến
 

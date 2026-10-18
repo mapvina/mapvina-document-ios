@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-04",
+  "android": {
+    "tag": "android-v1.0.2",
+    "commit": "1ae2545bdfebd4a30418716e1fb6d51b2496fdb0",
+    "ancestor_of_main": true,
+    "html_url": "https://github.com/mapvina/mapvina-native/releases/tag/android-v1.0.2",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-09-14T05:38:34Z"
+  },
+  "ios": {
+    "tag": "ios-v1.0.0",
+    "commit": "58428eebf72d128bface51881e704bd80b9f55dc",
+    "ancestor_of_main": true,
+    "html_url": "https://github.com/mapvina/mapvina-native/releases/tag/ios-v1.0.0",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-06-09T14:24:07Z"
+  },
+  "spm": {
+    "tag": "1.0.0",
+    "commit": "80632031c693cff41f0a7e29490d7454061f1d3a",
+    "zip_sha256": "931b726a76d7b79c241a8fac70702f9da0ec109a7ff01f01a403c50e9ff4f156"
+  },
+  "boundary": "Tag/release links and asset checksums verified. No full Android reproducible-build or trusted GPG attestation is claimed."
+}
