@@ -5,6 +5,10 @@
 > See [verified setup, evidence and limitations](docs/verification/2026-10-04/README.md) before following older examples.
 > No new SDK was published by this documentation update.
 
+> **Documentation update: 01/11/2026.**
+> Integration guides and the dated verification report are available on `main`.
+> This README refresh does not publish SDKs or rerun build/runtime checks; the verification results above are dated 04/10/2026.
+
 - Hướng dẫn tích hợp vào dự án iOS (SPM, CocoaPods, hoặc libs nội bộ)
 - Bổ sung các phần còn thiếu thường gặp khi triển khai thực tế
 - Liệt kê lỗi thường gặp và cách khắc phục
